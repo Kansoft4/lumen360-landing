@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+<style>
+  /* Réplica Vistare — v2: ajustes de auditoría pixel-perfect (contenido 1200,
+     escala tipográfica +20%, FAQ 608, testimonio 992, ritmo 136).
+     v1 original — Luna UI Design Studio (referencia: capturas adjuntas).
+     Fuentes: el original es un template de Framer; se usan los equivalentes más
+     cercanos de Google Fonts (Hanken Grotesk + Playfair Display italic). */
+  body { margin: 0; background: #FAF6EC; font-family: 'Hanken Grotesk', -apple-system, Segoe UI, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #22392F; text-decoration: none; }
+  a:hover { color: #4B6A5C; }
+  button { font-family: inherit; }
+  @keyframes vis-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+  @keyframes vis-vscroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(0,-50%,0); } }
+  @keyframes vis-pulse { 0% { transform: scale(1); opacity: .55; } 70% { transform: scale(1.75); opacity: 0; } 100% { transform: scale(1.75); opacity: 0; } }
+  /* MOVIMIENTO — el revelado al hacer scroll lo prepara el JS (si no hay JS, todo
+     queda visible). Aquí sólo lo que no puede ser inline: keyframes y hover de padre. */
+  [data-zoom-img] { transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+  [data-zoom]:hover [data-zoom-img] { transform: scale(1.07); }
+  [data-marquee]:hover > div { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    [data-reveal], [data-enter] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  }
+  /* BREAKPOINTS — 1100 / 980 / 760 / 520. Sólo se usan media queries para lo que
+     no se puede resolver con clamp()/auto-fit (cambios de columnas y nav móvil). */
+  @media (max-width: 1100px) { [data-hero] { gap: 32px !important; } }
+  @media (max-width: 980px) {
+    [data-hero] { grid-template-columns: 1fr !important; }
+    [data-nav-links] { display: none !important; }
+    [data-nav-burger] { display: inline-flex !important; }
+    [data-pricing] { grid-template-columns: 1fr !important; }
+    [data-testimonial] { grid-template-columns: 1fr !important; }
+    [data-quote] { margin-right: 0 !important; }
+    [data-footer-top] { grid-template-columns: 1fr !important; gap: 44px !important; }
+    [data-pricing-stack] { height: 460px !important; }
+  }
+  @media (max-width: 760px) {
+    [data-3col] { grid-template-columns: 1fr !important; }
+    [data-trusted] { flex-direction: column !important; align-items: flex-start !important; gap: 22px !important; }
+    [data-faq-head] { flex-direction: column !important; align-items: flex-start !important; gap: 18px !important; }
+    [data-results-row] { grid-template-columns: 1fr !important; }
+    [data-footbar] { flex-direction: column !important; gap: 10px !important; align-items: flex-start !important; }
+  }
+  @media (max-width: 520px) { [data-links-2col] { grid-template-columns: 1fr !important; gap: 32px !important; } }
+</style>
+</helmet>
+
+<div style="background:#FAF6EC;padding:0;color:#22392F">
+
+  <!-- ══ LIENZO PRINCIPAL — a sangre: sin margen ni esquinas redondeadas ══ -->
+  <div style="width:100%;margin:0 auto;background:#FAF6EC;border-radius:0;overflow:hidden">
+
+
+    <template id="__bundler_thumbnail">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#22392F" />
+        <text x="50" y="62" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="34" font-weight="700" fill="#fff">V</text>
+      </svg>
+    </template>
+
+    <!-- ── HERO ── -->
+    <section id="top" style="position:relative;width:100%;background-image:url('../../assets/hero-loft-hd.jpg');background-size:cover;background-position:center 46%;overflow:hidden">
+      <span style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(250,246,236,.97) 0%,rgba(250,246,236,.95) 38%,rgba(250,246,236,.72) 56%,rgba(250,246,236,.3) 76%,rgba(250,246,236,.06) 100%)"></span>
+      <span style="position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(to top,#FAF6EC 0%,rgba(250,246,236,.75) 45%,rgba(250,246,236,0) 100%)"></span>
+      <div style="position:relative;width:100%;max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,54px) clamp(20px,4vw,60px) clamp(28px,4vw,54px)">
+      <div data-hero="" style="display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center">
+        <div>
+          <span data-enter="" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:999px;background:#F4EFE0;border:1px solid #E3DAC0;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#4B6A5C">
+            <i class="ph ph-browser" style="font-size:14px;line-height:1;color:#BC4B51"></i>
+            AI Real Estate Branding
+          </span>
+          <h1 data-enter="" style="margin:24px 0 0;max-width:12ch;font-size:clamp(38px,5.6vw,80px);line-height:1.04;letter-spacing:-.035em;font-weight:800;color:#22392F;text-wrap:balance">
+            Vende apartamentos con <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">la mitad</span> de las visitas.
+          </h1>
+          <p data-enter="" style="margin:22px 0 0;max-width:440px;font-size:clamp(15px,1.25vw,17px);line-height:1.9;color:#4B6A5C;text-wrap:pretty">Tours virtuales 360° en Cali. Tu comprador recorre la propiedad completa antes de pedirte una cita.</p>
+          <button data-enter="" type="button" style="margin-top:30px;display:inline-flex;align-items:center;gap:9px;padding:15px 24px;border-radius:12px;background:#22392F;color:#fff;font-size:15px;font-weight:500;border:none;cursor:pointer;box-shadow:0 14px 26px -14px rgba(0,0,0,.85);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#2E4E41">
+            <!-- Iconografía: Phosphor Icons (regular + fill) vía CDN jsdelivr. -->
+            <i class="ph ph-rocket-launch" style="font-size:16px;line-height:1"></i>
+            Start your project
+          </button>
+        </div>
+        <div data-enter="" data-parallax="" style="justify-self:center;width:100%;max-width:334px;aspect-ratio:.52;position:relative;border-radius:clamp(20px,2.2vw,30px);overflow:hidden;box-shadow:0 40px 70px -40px rgba(0,0,0,.55),0 4px 14px -6px rgba(0,0,0,.12)">
+          <img data-zoom-img="" src="../../assets/hero-loft-hd.jpg" alt="Sala de apartamento con ventanales de piso a techo y vista a la ciudad" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 46%;display:block" />
+          <div style="position:absolute;left:14px;right:14px;bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:rgba(20,20,20,.55);backdrop-filter:blur(8px);color:#fff;font-size:11.5px;font-weight:500">
+              <span style="font-family:'Playfair Display',serif;font-style:italic">V</span> vistare.studio
+            </span>
+            <span style="color:rgba(255,255,255,.85);font-size:16px;line-height:1;letter-spacing:.05em">···</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trusted by -->
+      <div data-trusted="" data-reveal="" style="margin-top:clamp(40px,5vw,72px);display:flex;align-items:center;gap:clamp(24px,4vw,56px)">
+        <p style="margin:0;flex:0 0 auto;max-width:170px;font-size:13px;line-height:1.5;color:#7D8F76">Trusted by +58 ambitious<br />brands worldwide</p>
+        <div style="flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 86%,transparent)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,3vw,44px);color:#7D8F76">
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;white-space:nowrap"><i class="ph ph-chart-bar" style="font-size:15px;line-height:1"></i>Metricly</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;white-space:nowrap"><i class="ph ph-circle-notch" style="font-size:15px;line-height:1"></i>Velora</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;white-space:nowrap"><i class="ph ph-triangle" style="font-size:15px;line-height:1"></i>Auralink</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;white-space:nowrap"><i class="ph ph-squares-four" style="font-size:15px;line-height:1"></i>Fluxbit</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;white-space:nowrap"><i class="ph ph-code" style="font-size:15px;line-height:1"></i>Taskly</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;white-space:nowrap"><i class="ph ph-sparkle" style="font-size:15px;line-height:1"></i>Optima AI</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICIOS ── -->
+    <section id="services" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(64px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#F4EFE0;border:1px solid #E3DAC0;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#4B6A5C">Services</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#22392F;text-wrap:balance">Marketing visuals<br />that sell <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">homes</span></h2>
+      </div>
+      <div data-3col="" style="margin-top:clamp(34px,4vw,54px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,16px)">
+        <div data-reveal="" style="background:#fff;border:1px solid #EAE4D3;border-radius:20px;padding:26px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 44px -26px rgba(0,0,0,.4)">
+          <span style="display:flex;width:52px;height:52px;border-radius:15px;background:#22392F;color:#fff;align-items:center;justify-content:center;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">
+            <i class="ph ph-video-camera" style="font-size:25px;line-height:1"></i>
+          </span>
+          <h3 style="margin:52px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#22392F">Cinematic Video Tours</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#4B6A5C;text-wrap:pretty">High-end walkthroughs that turn properties into experiences.</p>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #EAE4D3;border-radius:20px;padding:26px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 44px -26px rgba(0,0,0,.4)">
+          <span style="display:flex;width:52px;height:52px;border-radius:15px;background:#22392F;color:#fff;align-items:center;justify-content:center;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">
+            <i class="ph ph-device-mobile" style="font-size:25px;line-height:1"></i>
+          </span>
+          <h3 style="margin:52px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#22392F">Social Media Visuals</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#4B6A5C;text-wrap:pretty">Stories, reels, and short videos crafted for max engagement.</p>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #EAE4D3;border-radius:20px;padding:26px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 44px -26px rgba(0,0,0,.4)">
+          <span style="display:flex;width:52px;height:52px;border-radius:15px;background:#22392F;color:#fff;align-items:center;justify-content:center;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">
+            <i class="ph ph-chat-circle-dots" style="font-size:25px;line-height:1"></i>
+          </span>
+          <h3 style="margin:52px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#22392F">Branding &amp; Messaging</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#4B6A5C;text-wrap:pretty">From naming to visual identity — everything to feel like a brand.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MARQUEE DE ETIQUETAS ── -->
+    <div data-marquee="" style="margin-top:clamp(28px,3.4vw,44px);padding:18px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)">
+      <div style="display:flex;width:max-content;animation-name:vis-marquee;animation-timing-function:linear;animation-iteration-count:infinite;animation-duration:{{ marqueeDur }}">
+        <div style="display:flex;align-items:center;gap:clamp(30px,4vw,58px);padding-right:clamp(30px,4vw,58px)">
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Real Estate</span>
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Visual Marketing</span>
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Video Tours</span>
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Luxury Brands</span>
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Branding</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:clamp(30px,4vw,58px);padding-right:clamp(30px,4vw,58px)" aria-hidden="true">
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Real Estate</span>
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Visual Marketing</span>
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Video Tours</span>
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Luxury Brands</span>
+          <span style="font-size:15px;font-weight:500;color:#4B6A5C;white-space:nowrap">Branding</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GALERÍA FEATURED (carrusel) ── -->
+    <section id="featured" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#F4EFE0;border:1px solid #E3DAC0;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#4B6A5C">Featured</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#22392F">Top-performing<br /><span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">real estate</span> gallery</h2>
+      </div>
+      <div data-reveal="" style="margin-top:clamp(30px,3.6vw,48px);position:relative">
+        <div style="overflow:hidden;border-radius:22px">
+          <div style="display:flex;gap:16px;will-change:transform;transition:transform .65s cubic-bezier(.22,.8,.2,1);transform:{{ trackX }}">
+            <sc-for list="{{ slides }}" as="s" hint-placeholder-count="3">
+              <article data-zoom="" style="flex:0 0 {{ slideBasis }};position:relative;aspect-ratio:.575;border-radius:22px;overflow:hidden;background:#E6E0CE">
+                <span data-zoom-img="" style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#E6E0CE 0 10px,#DED7C3 10px 20px);display:flex;align-items:center;justify-content:center">
+                  <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;letter-spacing:.04em;color:#97A38C;text-align:center;padding:0 18px">{{ s.ph }}</span>
+                </span>
+                <span style="position:absolute;left:0;right:0;bottom:0;height:58%;background:linear-gradient(180deg,transparent,rgba(10,10,10,.82))"></span>
+                <div style="position:absolute;left:20px;right:20px;bottom:22px;color:#fff">
+                  <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:rgba(255,255,255,.9)">
+                    <i class="ph {{ s.icon }}" style="font-size:14px;line-height:1"></i>
+                    {{ s.badge }}
+                  </span>
+                  <h3 style="margin:10px 0 0;font-size:22px;font-weight:700;letter-spacing:-.02em">{{ s.title }}</h3>
+                  <p style="margin:5px 0 0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.72)">{{ s.sub }}</p>
+                </div>
+              </article>
+            </sc-for>
+          </div>
+        </div>
+        <button type="button" aria-label="Previous" onClick="{{ prev }}" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:999px;border:none;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);color:#22392F;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 18px -10px rgba(0,0,0,.6);transition:background .2s,transform .2s" style-hover="background:#fff;transform:translateY(-50%) scale(1.07)">
+          <i class="ph ph-caret-left" style="font-size:15px;line-height:1"></i>
+        </button>
+        <button type="button" aria-label="Next" onClick="{{ next }}" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:999px;border:none;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);color:#22392F;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 18px -10px rgba(0,0,0,.6);transition:background .2s,transform .2s" style-hover="background:#fff;transform:translateY(-50%) scale(1.07)">
+          <i class="ph ph-caret-right" style="font-size:15px;line-height:1"></i>
+        </button>
+      </div>
+      <div data-reveal="" style="margin-top:22px;display:flex;justify-content:center">
+        <div style="display:flex;align-items:center;gap:7px;padding:12px 14px;border-radius:999px;background:#EDE7D8">
+          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+            <button type="button" aria-label="Go to slide" onClick="{{ d.go }}" style="height:6px;border:none;padding:0;cursor:pointer;border-radius:999px;transition:width .3s,background .3s;width:{{ d.w }};background:{{ d.bg }}"></button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW WE WORK ── -->
+    <section style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#F4EFE0;border:1px solid #E3DAC0;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#4B6A5C">How we work</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#22392F">We keep details<br /><span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">strong</span> and simple</h2>
+      </div>
+      <div data-3col="" style="margin-top:clamp(34px,4vw,54px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,16px)">
+        <div data-reveal="" style="background:#fff;border:1px solid #EAE4D3;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
+          <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#22392F;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">1</span>
+          <div style="height:150px;margin:20px 0 28px;border-radius:14px;background:repeating-linear-gradient(135deg,#EFEADB 0 10px,#E6E0CE 10px 20px);display:flex;align-items:center;justify-content:center">
+            <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#97A38C;text-align:center;padding:0 14px">ilustración 3D — libreta y lápiz</span>
+          </div>
+          <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#22392F">Discovery &amp; Strategy</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#4B6A5C;text-wrap:pretty">We align on goals, target buyers, and the unique story behind each property.</p>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #EAE4D3;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
+          <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#22392F;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">2</span>
+          <div style="height:150px;margin:20px 0 28px;border-radius:14px;background:repeating-linear-gradient(135deg,#EFEADB 0 10px,#E6E0CE 10px 20px);display:flex;align-items:center;justify-content:center">
+            <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#97A38C;text-align:center;padding:0 14px">ilustración 3D — móvil con galería</span>
+          </div>
+          <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#22392F">Production &amp; Storytelling</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#4B6A5C;text-wrap:pretty">From cinematic video tours to social-first visuals, we craft content that sells.</p>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #EAE4D3;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
+          <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#22392F;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">3</span>
+          <div style="height:150px;margin:20px 0 28px;border-radius:14px;background:repeating-linear-gradient(135deg,#EFEADB 0 10px,#E6E0CE 10px 20px);display:flex;align-items:center;justify-content:center">
+            <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#97A38C;text-align:center;padding:0 14px">ilustración 3D — vídeo y métricas</span>
+          </div>
+          <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#22392F">Launch &amp; Performance</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#4B6A5C;text-wrap:pretty">Your content goes live across Instagram, TikTok, Reels, Ads optimized for reach.</p>
+        </div>
+      </div>
+
+      <!-- ── TESTIMONIO ── -->
+      <div data-reveal="" style="margin-top:clamp(38px,4.6vw,66px);position:relative;max-width:992px;margin-left:auto;margin-right:auto">
+        <span style="position:absolute;left:24px;top:-24px;z-index:2;display:flex;width:48px;height:48px;border-radius:14px;background:#22392F;color:#fff;align-items:center;justify-content:center;box-shadow:0 12px 22px -12px rgba(0,0,0,.9)">
+          <i class="ph ph-rocket-launch" style="font-size:22px;line-height:1"></i>
+        </span>
+        <div data-testimonial="" style="display:grid;grid-template-columns:1.257fr 1fr;gap:17px;align-items:center">
+          <div data-quote="" style="background:#fff;border:1px solid #EAE4D3;border-radius:18px;padding:34px 32px 30px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 20px 40px -30px rgba(0,0,0,.4)">
+            <p style="margin:0;max-width:430px;font-size:clamp(18px,1.6vw,22px);line-height:1.45;font-weight:600;letter-spacing:-.02em;color:#22392F;text-wrap:pretty">“Vistare was built with a mission: turn visuals into real results for global real estate.”</p>
+            <div style="margin-top:26px;display:flex;align-items:center;gap:11px">
+              <span style="width:38px;height:38px;border-radius:999px;background:repeating-linear-gradient(135deg,#E6E0CE 0 6px,#DED7C3 6px 12px);flex:0 0 auto"></span>
+              <span style="display:flex;flex-direction:column;gap:2px">
+                <span style="font-size:15px;font-weight:600;color:#22392F">Adrian Cole</span>
+                <span style="font-size:13px;color:#7D8F76">Founder of Vistare</span>
+              </span>
+            </div>
+          </div>
+          <div data-zoom="" style="position:relative;z-index:1;aspect-ratio:1.57;border-radius:16px;overflow:hidden;box-shadow:0 30px 55px -34px rgba(0,0,0,.6)">
+            <span data-zoom-img="" style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#E6E0CE 0 10px,#DED7C3 10px 20px);display:flex;align-items:center;justify-content:center">
+              <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#97A38C;text-align:center;padding:0 18px">foto — casa con cartel “FOR SALE”</span>
+            </span>
+            <span style="position:absolute;left:12px;bottom:12px;padding:5px 10px;border-radius:999px;background:rgba(20,20,20,.5);backdrop-filter:blur(8px);color:#fff;font-size:11px;font-weight:500">@vistare.studio</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESULTS ── -->
+    <section style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#F4EFE0;border:1px solid #E3DAC0;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#4B6A5C">Results</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#22392F">Selling a $4.5M villa<br />through <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">visual storytelling</span></h2>
+        <p style="margin:20px 0 0;max-width:460px;font-size:16px;line-height:1.8;color:#4B6A5C;text-wrap:pretty">We helped a premium property stand out in a crowded market with premium cinematic visuals</p>
+        <button type="button" style="margin-top:26px;display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:12px;background:#22392F;color:#fff;font-size:15px;font-weight:500;border:none;cursor:pointer;box-shadow:0 14px 26px -14px rgba(0,0,0,.85);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#2E4E41">
+          <i class="ph ph-rocket-launch" style="font-size:16px;line-height:1"></i>
+          Get Started
+        </button>
+      </div>
+      <!-- La referencia corta esta fila de 3 imágenes por el borde de la captura:
+           el alto real de las tarjetas está aproximado (ratio 3:4). -->
+      <div data-results-row="" style="margin-top:clamp(30px,3.6vw,48px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,16px)">
+        <div data-reveal="" style="position:relative;aspect-ratio:.75;border-radius:20px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E0CE 0 10px,#DED7C3 10px 20px);display:flex;align-items:center;justify-content:center;transition:transform .7s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.02)">
+          <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#97A38C;text-align:center;padding:0 18px">foto — costa y palmeras</span>
+        </div>
+        <div data-reveal="" style="position:relative;aspect-ratio:.75;border-radius:20px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E0CE 0 10px,#DED7C3 10px 20px);display:flex;align-items:center;justify-content:center;transition:transform .7s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.02)">
+          <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#97A38C;text-align:center;padding:0 18px">foto — villa al atardecer</span>
+        </div>
+        <div data-reveal="" style="position:relative;aspect-ratio:.75;border-radius:20px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E0CE 0 10px,#DED7C3 10px 20px);display:flex;align-items:center;justify-content:center;transition:transform .7s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.02)">
+          <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#97A38C;text-align:center;padding:0 18px">foto — piscina infinita</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRICING ── -->
+    <section style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#F4EFE0;border:1px solid #E3DAC0;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#4B6A5C">Pricing</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#22392F">Plan built for serious<br />brand <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">growth</span></h2>
+      </div>
+      <div data-pricing="" style="margin-top:clamp(30px,3.6vw,46px);display:grid;grid-template-columns:.39fr .61fr;gap:clamp(16px,2vw,32px);align-items:start">
+        <!-- Columna izquierda: en la captura la pila de fotos aparece recortada por
+             abajo; se interpreta como un carrusel vertical en bucle. -->
+        <div data-pricing-stack="" data-reveal="" style="height:620px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 78%,transparent);mask-image:linear-gradient(180deg,#000 78%,transparent)">
+          <div style="display:flex;flex-direction:column;gap:16px;animation:vis-vscroll 26s linear infinite">
+            <sc-for list="{{ stackTwice }}" as="p" hint-placeholder-count="6">
+              <div style="position:relative;flex:0 0 auto;aspect-ratio:1.7;border-radius:16px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E0CE 0 10px,#DED7C3 10px 20px);display:flex;align-items:center;justify-content:center;transition:transform .7s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.02)">
+                <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#97A38C;text-align:center;padding:0 16px">{{ p.ph }}</span>
+                <span style="position:absolute;left:10px;bottom:10px;padding:4px 9px;border-radius:999px;background:rgba(20,20,20,.5);backdrop-filter:blur(8px);color:#fff;font-size:10.5px;font-weight:500">{{ p.handle }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #EAE4D3;border-radius:24px;padding:clamp(24px,2.4vw,32px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 50px -34px rgba(0,0,0,.45)">
+          <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#22392F;color:#fff;align-items:center;justify-content:center;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">
+            <i class="ph ph-diamond" style="font-size:23px;line-height:1"></i>
+          </span>
+          <h3 style="margin:26px 0 0;font-size:clamp(20px,1.9vw,26px);font-weight:700;letter-spacing:-.025em;color:#22392F">Estate Package</h3>
+          <p style="margin:10px 0 0;max-width:400px;font-size:15px;line-height:1.7;color:#5E7A6A;text-wrap:pretty">All-in-one package to showcase your property with cinematic quality and social-first impact.</p>
+          <div style="margin-top:20px;display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:clamp(28px,2.8vw,36px);font-weight:700;letter-spacing:-.035em;color:#22392F">$490</span>
+            <span style="font-size:15px;color:#7D8F76">/ project</span>
+          </div>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:20px">
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#4B6A5C">
+              <i class="ph ph-monitor-play" style="font-size:17px;line-height:1.1;color:#4B6A5C"></i>
+              Cinematic video tour (1–2 min)
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#4B6A5C">
+              <i class="ph ph-device-mobile" style="font-size:17px;line-height:1.1;color:#4B6A5C"></i>
+              Social-first edits for Instagram, TikTok, YouTube
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#4B6A5C">
+              <i class="ph ph-tag" style="font-size:17px;line-height:1.1;color:#4B6A5C"></i>
+              Property branding (intro/outro, logo, text overlays)
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#4B6A5C">
+              <i class="ph ph-clock" style="font-size:17px;line-height:1.1;color:#4B6A5C"></i>
+              Fast delivery: 5–7 business days
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#4B6A5C">
+              <i class="ph ph-arrows-clockwise" style="font-size:17px;line-height:1.1;color:#4B6A5C"></i>
+              Ongoing support for revisions
+            </span>
+          </div>
+          <button type="button" style="margin-top:28px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 22px;border-radius:14px;background:#2E4E41;color:#fff;font-size:15px;font-weight:500;border:none;cursor:pointer;box-shadow:0 16px 30px -18px rgba(0,0,0,.9);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#22392F">
+            <i class="ph ph-rocket-launch" style="font-size:16px;line-height:1"></i>
+            Start the Project
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section id="faq" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#F4EFE0;border:1px solid #E3DAC0;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#4B6A5C">FAQ</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#22392F">Frequently Asked<br /><span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">Questions</span></h2>
+      </div>
+      <div data-reveal="" style="margin-top:clamp(30px,3.6vw,46px);max-width:608px;margin-left:auto;margin-right:auto;background:#fff;border:1px solid #EAE4D3;border-radius:22px;padding:clamp(20px,2.2vw,30px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 50px -36px rgba(0,0,0,.45)">
+        <div data-faq-head="" style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <span style="font-size:13px;color:#7D8F76">Email</span>
+            <a href="mailto:hello@vistare.com" style="font-size:15px;font-weight:500;color:#22392F;text-decoration:underline;text-underline-offset:3px">hello@vistare.com</a>
+          </div>
+          <button type="button" style="display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:12px;background:#22392F;color:#fff;font-size:14px;font-weight:500;border:none;cursor:pointer;box-shadow:0 14px 26px -16px rgba(0,0,0,.85);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#2E4E41">
+            <i class="ph ph-envelope-simple" style="font-size:16px;line-height:1"></i>
+            Get in touch
+          </button>
+        </div>
+        <div style="margin-top:22px;display:flex;flex-direction:column">
+          <!-- Las respuestas no son visibles en la referencia (acordeón cerrado):
+               texto redactado a partir del propio contenido de la página. -->
+          <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+            <div style="border-top:1px solid #EAE4D3">
+              <button type="button" onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 4px;background:none;border:none;cursor:pointer;text-align:left;color:#22392F;transition:color .2s" style-hover="color:#4B6A5C">
+                <span style="font-size:16px;font-weight:500">{{ f.q }}</span>
+                <span style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#22392F;color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.2,.8,.2,1);transform:{{ f.rot }}">
+                  <i class="ph ph-plus" style="font-size:13px;line-height:1"></i>
+                </span>
+              </button>
+              <div style="display:grid;overflow:hidden;transition:grid-template-rows .45s cubic-bezier(.22,.8,.2,1),opacity .35s ease;grid-template-rows:{{ f.rows }};opacity:{{ f.op }}">
+                <div style="min-height:0">
+                  <p style="margin:-4px 4px 20px 0;max-width:520px;font-size:15px;line-height:1.75;color:#4B6A5C;text-wrap:pretty">{{ f.a }}</p>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA FINAL (panel oscuro) ── -->
+    <section style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) clamp(20px,3vw,40px)">
+      <div data-reveal="" style="background:#22392F;border-radius:clamp(20px,2.2vw,30px);padding:clamp(38px,5vw,72px) clamp(20px,3.4vw,50px);text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#fff;font-size:13px;font-weight:500;color:#22392F">Get Started</span>
+        <h2 style="margin:22px auto 0;max-width:760px;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#fff">Your Vistare journey<br />starts <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">right now</span></h2>
+        <p style="margin:20px auto 0;max-width:430px;font-size:16px;line-height:1.8;color:#7D8F76;text-wrap:pretty">Book a free 30 min call and see how we turn property views into serious buyers</p>
+        <button type="button" style="margin-top:26px;display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:12px;background:#fff;color:#22392F;font-size:15px;font-weight:500;border:none;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#E6E0CE">
+          <i class="ph ph-rocket-launch" style="font-size:16px;line-height:1"></i>
+          Get Started
+        </button>
+        <div data-3col="" style="margin-top:clamp(30px,3.6vw,46px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,16px);text-align:left">
+          <sc-for list="{{ ctaCards }}" as="c" hint-placeholder-count="3">
+            <div data-reveal="" style="position:relative;aspect-ratio:.56;border-radius:18px;overflow:hidden;background:repeating-linear-gradient(135deg,#2E4E41 0 10px,#1B2F27 10px 20px);display:flex;align-items:center;justify-content:center;transition:transform .7s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.02)">
+              <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#7D8F76;text-align:center;padding:0 18px">{{ c.ph }}</span>
+              <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:999px;background:rgba(244,162,89,.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s" style-after="content:'';position:absolute;inset:-6px;border-radius:999px;border:1px solid rgba(244,162,89,.55);animation:vis-pulse 2.6s cubic-bezier(.2,.8,.2,1) infinite" style-hover="background:#F4A259;transform:translate(-50%,-50%) scale(1.08)">
+                <i class="ph-fill ph-play" style="font-size:13px;line-height:1;color:#fff"></i>
+              </span>
+              <span style="position:absolute;left:12px;bottom:12px;color:#fff;font-size:13px;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.7)">{{ c.handle }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ══ FOOTER (bloque blanco independiente) ══ -->
+  <footer style="max-width:1320px;margin:clamp(10px,1.6vw,22px) auto 0;background:#fff;border-radius:clamp(18px,2vw,30px);padding:clamp(34px,4vw,58px) clamp(20px,9vw,130px) clamp(20px,2.4vw,30px)">
+    <div data-footer-top="" data-reveal="" style="display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,4vw,60px)">
+      <div>
+        <a href="#top" style="display:flex;align-items:center;gap:9px">
+          <span style="width:26px;height:26px;border-radius:8px;background:#22392F;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:14px">V</span>
+          <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;font-weight:500">Vistare</span>
+        </a>
+        <h3 style="margin:20px 0 0;max-width:330px;font-size:clamp(22px,2.6vw,34px);line-height:1.18;letter-spacing:-.035em;font-weight:700;color:#22392F">Visuals for <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500">real estate</span> brands</h3>
+        <div style="margin-top:22px;display:flex;gap:9px">
+          <!-- Glifos sociales de Phosphor: threads-logo, x-logo, instagram-logo.
+               -->
+          <a href="#top" aria-label="Threads" style="width:38px;height:38px;border-radius:11px;background:#22392F;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s" style-hover="background:#2E4E41;transform:translateY(-2px)">
+            <i class="ph ph-threads-logo" style="font-size:16px;line-height:1"></i>
+          </a>
+          <a href="#top" aria-label="X" style="width:38px;height:38px;border-radius:11px;background:#22392F;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s" style-hover="background:#2E4E41;transform:translateY(-2px)">
+            <i class="ph ph-x-logo" style="font-size:15px;line-height:1"></i>
+          </a>
+          <a href="#top" aria-label="Instagram" style="width:38px;height:38px;border-radius:11px;background:#22392F;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s" style-hover="background:#2E4E41;transform:translateY(-2px)">
+            <i class="ph ph-instagram-logo" style="font-size:16px;line-height:1"></i>
+          </a>
+        </div>
+      </div>
+      <div data-links-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:17px">
+          <span style="font-size:14px;font-weight:600;color:#22392F">Navigate</span>
+          <a href="#top" style="font-size:15px;color:#4B6A5C;transition:color .2s" style-hover="color:#22392F">Home</a>
+          <a href="#services" style="font-size:15px;color:#4B6A5C;transition:color .2s" style-hover="color:#22392F">About</a>
+          <a href="#featured" style="font-size:15px;color:#4B6A5C;transition:color .2s" style-hover="color:#22392F">Blog</a>
+          <a href="#faq" style="font-size:15px;color:#4B6A5C;transition:color .2s" style-hover="color:#22392F">Contact</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:17px">
+          <span style="font-size:14px;font-weight:600;color:#22392F">Legal</span>
+          <a href="#top" style="font-size:15px;color:#4B6A5C;transition:color .2s" style-hover="color:#22392F">Privacy Policy</a>
+          <a href="#top" style="font-size:15px;color:#4B6A5C;transition:color .2s" style-hover="color:#22392F">Terms of Service</a>
+          <a href="#top" style="font-size:15px;color:#4B6A5C;transition:color .2s" style-hover="color:#22392F">404</a>
+        </div>
+      </div>
+    </div>
+    <div data-footbar="" data-reveal="" style="margin-top:clamp(30px,3.4vw,48px);padding-top:18px;border-top:1px solid #EAE4D3;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <span style="font-size:13px;color:#7D8F76">© 2025 Vistare. Made by <a href="#top" style="color:#7D8F76;text-decoration:underline;text-underline-offset:2px">Luna UI Design Studio</a></span>
+      <span style="font-size:13px;color:#7D8F76">Built in <a href="#top" style="color:#7D8F76;text-decoration:underline;text-underline-offset:2px">Framer</a></span>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;galleryAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;marqueeSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:26,&quot;min&quot;:8,&quot;max&quot;:60,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;faqAllowMultiple&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;}}">
+class Component extends DCLogic {
+  state = { slide: 0, perView: 3, faqOpen: null, menuOpen: false };
+
+  // La referencia muestra 6 puntos de paginación pero sólo 3 tarjetas visibles:
+  // los slides 4-6 repiten el contenido visible (no se inventan propiedades).
+  base = [
+    { icon: 'ph-trend-up', badge: '+230% Views', title: 'Nestway Dubai', sub: 'Skyline views and social-first rebrand.', ph: 'foto — villa acristalada frente al mar' },
+    { icon: 'ph-chats-circle', badge: '3x More Inquires', title: 'Hillcrest Estates', sub: 'Warm visuals and clarity for listings.', ph: 'foto — casa con jardín y flores' },
+    { icon: 'ph-eye', badge: '120K views, 8K saves', title: 'Seaview Retreat', sub: 'Cinematic tour + Instagram rollout.', ph: 'foto — fachada de madera y cristal' }
+  ];
+
+  stack = [
+    { handle: '@aurora.residences', ph: 'foto — residencia moderna' },
+    { handle: '@glassline.living', ph: 'foto — edificio acristalado' },
+    { handle: '', ph: 'foto — tercera imagen (recortada en la referencia)' }
+  ];
+
+  ctaCards = [
+    { handle: '@terra.lodge', ph: 'vídeo — casa en la ladera' },
+    { handle: '@dubai.glasshaus', ph: 'vídeo — skyline de Dubái' },
+    { handle: '@casa.solmar', ph: 'vídeo — piscina frente al mar' }
+  ];
+
+  faqData = [
+    { q: "What's included in the service?", a: 'A cinematic video tour, social-first edits, and the property branding needed to publish everywhere.' },
+    { q: 'How much does it cost?', a: 'The Estate Package is $490 per project, all-in.' },
+    { q: 'How long does it take?', a: 'Delivery takes 5–7 business days from the shoot.' },
+    { q: 'Do you only work with luxury properties?', a: 'No. Luxury listings are a big part of the work, but any property that needs a stronger story fits.' },
+    { q: 'Can I use the content for ads?', a: 'Yes. Every edit is delivered in the formats used for Instagram, TikTok, Reels and paid ads.' }
+  ];
+
+  get slides() { return this.base.concat(this.base); }
+
+  componentDidMount() {
+    this.fit = () => {
+      const w = window.innerWidth;
+      const n = w >= 1024 ? 3 : w >= 680 ? 2 : 1;
+      this.setState(s => ({ perView: n, slide: Math.min(s.slide, this.slides.length - n) }));
+    };
+    this.fit();
+    window.addEventListener('resize', this.fit);
+    if (this.props.galleryAutoplay !== false) this.timer = setInterval(() => this.go(1), 5000);
+    this.setupMotion();
+    this.motionRescan = [setTimeout(() => this.setupMotion(), 400), setTimeout(() => this.setupMotion(), 1600)];
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.fit);
+    clearInterval(this.timer);
+    (this.motionRescan || []).forEach(clearTimeout);
+    if (this.onScroll) window.removeEventListener('scroll', this.onScroll);
+    if (this.io) this.io.disconnect();
+  }
+
+  // Movimiento: entrada del hero, revelado escalonado al hacer scroll y parallax.
+  // Los estados iniciales se aplican desde JS para que sin JS la página se vea entera.
+  setupMotion() {
+    if (this.props.motion === false) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const E = 'cubic-bezier(.22,.8,.2,1)';
+    const prep = el => {
+      if (el.dataset.motionReady) return false;
+      el.dataset.motionReady = '1';
+      el.style.willChange = 'opacity,transform,filter';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.filter = 'blur(7px)';
+      el.style.transition = 'opacity .85s ' + E + ', transform .85s ' + E + ', filter .85s ' + E;
+      return true;
+    };
+    const show = (el, d) => setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.filter = 'none';
+      setTimeout(() => { el.style.willChange = ''; el.style.transition = ''; }, 1200);
+    }, d);
+
+    document.querySelectorAll('[data-enter]').forEach((el, i) => { if (prep(el)) show(el, 140 + i * 110); });
+
+    if (!this.io) this.io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        this.io.unobserve(e.target);
+        const sibs = Array.from(e.target.parentElement.children).filter(n => n.hasAttribute('data-reveal'));
+        show(e.target, Math.max(0, sibs.indexOf(e.target)) * 95);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    document.querySelectorAll('[data-reveal]').forEach(el => { if (prep(el)) this.io.observe(el); });
+
+    this.para = Array.from(document.querySelectorAll('[data-parallax]'));
+    if (!this.onScroll) {
+      this.onScroll = () => {
+        if (this.raf) return;
+        this.raf = requestAnimationFrame(() => {
+          this.raf = null;
+          const vh = window.innerHeight || 800;
+          this.para.forEach(el => {
+            const r = el.getBoundingClientRect();
+            const p = (r.top + r.height / 2 - vh / 2) / vh;
+            el.style.translate = '0 ' + (p * -30).toFixed(1) + 'px';
+          });
+        });
+      };
+      window.addEventListener('scroll', this.onScroll, { passive: true });
+      this.onScroll();
+    }
+    // Red de seguridad: nada se queda invisible.
+    clearTimeout(this.motionSafety);
+    this.motionSafety = setTimeout(() => {
+      document.querySelectorAll('[data-reveal]').forEach(el => {
+        if (el.style.opacity === '0' && el.getBoundingClientRect().top < (window.innerHeight || 800)) show(el, 0);
+      });
+    }, 2600);
+  }
+
+  go(d) {
+    this.setState(s => {
+      const max = this.slides.length - s.perView;
+      let n = s.slide + d;
+      if (n > max) n = 0;
+      if (n < 0) n = max;
+      return { slide: n };
+    });
+  }
+
+  renderVals() {
+    const gap = 16;
+    const n = this.state.perView;
+    const step = `((100% - ${(n - 1) * gap}px) / ${n} + ${gap}px)`;
+    const max = this.slides.length - n;
+    return {
+      slides: this.slides,
+      stackTwice: this.stack.concat(this.stack),
+      ctaCards: this.ctaCards,
+      slideBasis: `calc((100% - ${(n - 1) * gap}px) / ${n})`,
+      trackX: `translateX(calc(${-this.state.slide} * ${step}))`,
+      marqueeDur: (this.props.marqueeSpeed || 26) + 's',
+      prev: () => { clearInterval(this.timer); this.go(-1); },
+      next: () => { clearInterval(this.timer); this.go(1); },
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      dots: this.slides.map((_, i) => ({
+        w: i === this.state.slide ? '18px' : '6px',
+        bg: i === this.state.slide ? '#BC4B51' : '#D3CDB9',
+        go: () => { clearInterval(this.timer); this.setState({ slide: Math.min(i, max) }); }
+      })),
+      faqs: this.faqData.map((f, i) => ({
+        q: f.q,
+        a: f.a,
+        open: this.state.faqOpen === i,
+        rows: this.state.faqOpen === i ? '1fr' : '0fr',
+        op: this.state.faqOpen === i ? '1' : '0',
+        rot: this.state.faqOpen === i ? 'rotate(45deg)' : 'rotate(0deg)',
+        toggle: () => this.setState(s => {
+          if (this.props.faqAllowMultiple) return { faqOpen: s.faqOpen === i ? null : i };
+          return { faqOpen: s.faqOpen === i ? null : i };
+        })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

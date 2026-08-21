@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+<style>
+  /* Lumen 360 — landing de conversión (Cali). Paleta: Jet Black #172A3A,
+     Dark Teal #004346, Jade #16785A, blanco frío #EFF4F4.
+     Todos los CTA apuntan a WhatsApp +57 301 149 3222 con mensaje precargado
+     distinto por sección (así se sabe de dónde vino el lead). */
+  body { margin: 0; background: #EFF4F4; font-family: 'Hanken Grotesk', -apple-system, Segoe UI, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  a { color: #172A3A; text-decoration: none; }
+  a:hover { color: #3F5A66; }
+  button { font-family: inherit; }
+  @keyframes vis-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+  @keyframes vis-vscroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(0,-50%,0); } }
+  @keyframes vis-pulse { 0% { transform: scale(1); opacity: .55; } 70% { transform: scale(1.75); opacity: 0; } 100% { transform: scale(1.75); opacity: 0; } }
+  @keyframes vis-ring { 0% { transform: scale(1); opacity: .5; } 70% { transform: scale(1.6); opacity: 0; } 100% { transform: scale(1.6); opacity: 0; } }
+  [data-zoom-img] { transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+  [data-zoom]:hover [data-zoom-img] { transform: scale(1.07); }
+  [data-marquee]:hover > div { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    [data-reveal], [data-enter] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  }
+  @media (max-width: 1100px) { [data-hero] { gap: 32px !important; } }
+  @media (max-width: 980px) {
+    [data-hero] { grid-template-columns: 1fr !important; }
+    [data-pricing] { grid-template-columns: 1fr !important; }
+    [data-testimonial] { grid-template-columns: 1fr !important; }
+    [data-quote] { margin-right: 0 !important; }
+    [data-footer-top] { grid-template-columns: 1fr !important; gap: 44px !important; }
+    [data-pricing-stack] { height: 460px !important; }
+  }
+  @media (max-width: 760px) {
+    [data-tour-frame] { aspect-ratio: 4 / 5 !important; }
+    [data-tour-hints] { gap: 10px 16px !important; }
+    [data-3col] { grid-template-columns: 1fr !important; }
+    [data-steps] { grid-template-columns: 1fr !important; }
+    [data-trusted] { flex-direction: column !important; align-items: flex-start !important; gap: 22px !important; }
+    [data-faq-head] { flex-direction: column !important; align-items: flex-start !important; gap: 18px !important; }
+    [data-footbar] { flex-direction: column !important; gap: 10px !important; align-items: flex-start !important; }
+    [data-ctaband] { flex-direction: column !important; align-items: flex-start !important; }
+    [data-ctaband] > a { width: 100% !important; justify-content: center !important; }
+  }
+  @media (max-width: 520px) {
+    [data-links-2col] { grid-template-columns: 1fr !important; gap: 32px !important; }
+    [data-fab-label] { display: none !important; }
+    [data-hero-ctas] > a { width: 100% !important; justify-content: center !important; }
+  }
+</style>
+</helmet>
+
+<div style="background:#EFF4F4;padding:0;color:#172A3A">
+
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="#172A3A" />
+      <text x="50" y="62" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="34" font-weight="700" fill="#fff">L</text>
+    </svg>
+  </template>
+
+  <div style="width:100%;margin:0 auto;background:#EFF4F4;border-radius:0;overflow:hidden">
+
+    <!-- ── HERO ── -->
+    <section id="top" style="position:relative;width:100%;background-image:url('assets/hero-loft-hd.jpg');background-size:cover;background-position:center 46%;overflow:hidden">
+      <span style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(239,244,244,.97) 0%,rgba(239,244,244,.95) 38%,rgba(239,244,244,.72) 56%,rgba(239,244,244,.3) 76%,rgba(239,244,244,.06) 100%)"></span>
+      <span style="position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(to top,#EFF4F4 0%,rgba(239,244,244,.75) 45%,rgba(239,244,244,0) 100%)"></span>
+      <div style="position:relative;width:100%;max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,54px) clamp(20px,4vw,60px) clamp(28px,4vw,54px)">
+      <div data-hero="" style="display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center">
+        <div>
+          <span data-enter="" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:999px;background:#E4EDEE;border:1px solid #CBDCDE;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#3F5A66">
+            <i class="ph ph-cube" style="font-size:14px;line-height:1;color:#16785A"></i>
+            Tours virtuales 360° en Cali
+          </span>
+          <h1 data-enter="" style="margin:24px 0 0;max-width:12ch;font-size:clamp(38px,5.6vw,80px);line-height:1.04;letter-spacing:-.035em;font-weight:800;color:#172A3A;text-wrap:balance">
+            Vende apartamentos con <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">la mitad</span> de las visitas.
+          </h1>
+          <p data-enter="" style="margin:22px 0 0;max-width:440px;font-size:clamp(15px,1.25vw,17px);line-height:1.9;color:#3F5A66;text-wrap:pretty">Tu comprador recorre la propiedad completa antes de pedirte una cita. Escaneamos tu primera propiedad gratis y te entregamos el link en 24 horas.</p>
+          <div data-enter="" data-hero-ctas="" style="margin-top:30px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <a href="https://wa.me/573011493222?text=Hola%2C%20quiero%20reclamar%20el%20tour%20virtual%20360%20gratis%20de%20una%20propiedad%20en%20Cali." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:12px;background:#172A3A;color:#fff;font-size:16px;font-weight:600;letter-spacing:-.01em;box-shadow:0 14px 26px -14px rgba(0,0,0,.85);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#004346;color:#fff">
+              <i class="ph-fill ph-whatsapp-logo" style="font-size:19px;line-height:1;color:#35C598"></i>
+              Reclamar mi tour gratis
+            </a>
+            <a href="#tour-demo" style="display:inline-flex;align-items:center;gap:9px;padding:16px 22px;border-radius:12px;background:rgba(255,255,255,.7);border:1px solid #CBDCDE;color:#172A3A;font-size:15px;font-weight:500;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#fff;color:#172A3A">
+              <i class="ph ph-play-circle" style="font-size:17px;line-height:1"></i>
+              Ver un tour por dentro
+            </a>
+          </div>
+          <div data-enter="" style="margin-top:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13.5px;color:#5B7581">
+            <span style="display:inline-flex;align-items:center;gap:6px"><i class="ph-fill ph-check-circle" style="font-size:15px;color:#16785A"></i>Respuesta en minutos</span>
+            <span style="display:inline-flex;align-items:center;gap:6px"><i class="ph-fill ph-check-circle" style="font-size:15px;color:#16785A"></i>Sin contrato ni mensualidad</span>
+            <span style="display:inline-flex;align-items:center;gap:6px"><i class="ph-fill ph-check-circle" style="font-size:15px;color:#16785A"></i>Entrega en 24 horas</span>
+          </div>
+        </div>
+        <div data-enter="" data-parallax="" style="justify-self:center;width:100%;max-width:334px;aspect-ratio:.52;position:relative;border-radius:clamp(20px,2.2vw,30px);overflow:hidden;box-shadow:0 40px 70px -40px rgba(0,0,0,.55),0 4px 14px -6px rgba(0,0,0,.12)">
+          <video data-zoom-img="" src="assets/reel_loop_3.mp4" poster="assets/hero-loft-hd.jpg" ref="{{ heroVideo }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="auto" aria-label="Recorrido en video de un apartamento con ventanales de piso a techo y vista a la ciudad" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 46%;display:block"></video>
+          <div style="position:absolute;left:14px;right:14px;bottom:14px;display:flex;align-items:center;justify-content:flex-end;gap:10px">
+            <span style="color:rgba(255,255,255,.85);font-size:16px;line-height:1;letter-spacing:.05em">···</span>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </section>
+
+    <!-- ── TOUR 360 REAL (demo en vivo) ──
+         Parámetros de la URL:
+           qs=1    entra directo a Inside View (se salta el fly-in desde Dollhouse)
+           wh=0    la rueda del mouse scrollea la página en vez de quedar atrapada
+                   haciendo zoom en el tour. Clave en una landing larga.
+           brand=0 oculta "Presented By" y los datos de contacto del panel About.
+           nozoom=1 fija el encuadre en 1.00x y el visitante no lo puede cerrar.
+                   NOTA: 1.00x no es la apertura maxima. El rango real del zoom de
+                   Matterport llega hasta 0.70x (probado: zoomTo(0.5) devuelve 0.7),
+                   pero bajar de 1.00x solo se puede por SDK, y el SDK en dominio
+                   propio exige plan pago + Developer Tools License.
+         Sin play=1 a propósito: así Matterport muestra el póster y no arranca el
+         motor WebGL hasta que el visitante hace clic. -->
+    <section id="tour-demo" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(44px,6vw,88px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:clamp(18px,2vw,26px);padding:clamp(10px,1.1vw,14px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 30px 60px -38px rgba(0,0,0,.5)">
+        <div data-tour-frame="" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:clamp(12px,1.4vw,18px);overflow:hidden;background:#172A3A">
+          <iframe
+            src="https://my.matterport.com/show/?m=LEFDGo2G7fq&amp;qs=1&amp;wh=0&amp;brand=0&amp;nozoom=1"
+            title="Tour virtual 360° de un apartamento en Cali"
+            loading="lazy"
+            allowfullscreen=""
+            allow="fullscreen; xr-spatial-tracking"
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+        </div>
+
+        <div data-tour-hints="" style="display:flex;align-items:center;justify-content:center;gap:clamp(14px,2vw,28px);flex-wrap:wrap;padding:16px 8px 8px;font-size:13.5px;color:#5B7581">
+          <span style="display:inline-flex;align-items:center;gap:7px"><i class="ph ph-hand-grabbing" style="font-size:16px;line-height:1;color:#16785A"></i>Arrastra para mirar</span>
+          <span style="display:inline-flex;align-items:center;gap:7px"><i class="ph ph-cursor-click" style="font-size:16px;line-height:1;color:#16785A"></i>Clic en el piso para avanzar</span>
+          <span style="display:inline-flex;align-items:center;gap:7px"><i class="ph ph-cube-transparent" style="font-size:16px;line-height:1;color:#16785A"></i>Botón de vista muñeca</span>
+          <span style="display:inline-flex;align-items:center;gap:7px"><i class="ph ph-ruler" style="font-size:16px;line-height:1;color:#16785A"></i>Regla para medir</span>
+        </div>
+      </div>
+
+      <div data-reveal="" style="margin-top:22px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap">
+        <a href="https://wa.me/573011493222?text=Hola%2C%20vi%20el%20tour%20de%20ejemplo%20en%20la%20p%C3%A1gina%20y%20quiero%20uno%20igual%20para%20mi%20propiedad." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:12px;background:#172A3A;color:#fff;font-size:16px;font-weight:600;letter-spacing:-.01em;box-shadow:0 14px 26px -14px rgba(0,0,0,.85);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#004346;color:#fff">
+          <i class="ph-fill ph-whatsapp-logo" style="font-size:19px;line-height:1;color:#35C598"></i>
+          Quiero uno igual para mi propiedad
+        </a>
+        <span style="font-size:13.5px;color:#7C919C">El primero va por nuestra cuenta.</span>
+      </div>
+    </section>
+
+
+    <!-- ── SERVICIOS ── -->
+    <section id="servicios" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(64px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#E4EDEE;border:1px solid #CBDCDE;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#3F5A66">Para el asesor</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#172A3A;text-wrap:balance">Menos tardes en el carro.<br />Más cierres al <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">mes</span>.</h2>
+      </div>
+      <div data-3col="" style="margin-top:clamp(34px,4vw,54px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,16px)">
+        <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:26px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 44px -26px rgba(0,0,0,.4)">
+          <span style="display:flex;width:52px;height:52px;border-radius:15px;background:#004346;color:#fff;align-items:center;justify-content:center;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">
+            <i class="ph ph-car" style="font-size:25px;line-height:1"></i>
+          </span>
+          <h3 style="margin:52px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">La tarde entera, por un link</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty">Hoy le muestras diez propiedades en una tarde completa y le gusta una. Con tour, las recorre todas desde su casa y tú sales a mostrar las dos que de verdad quiere.</p>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:26px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 44px -26px rgba(0,0,0,.4)">
+          <span style="display:flex;width:52px;height:52px;border-radius:15px;background:#004346;color:#fff;align-items:center;justify-content:center;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">
+            <i class="ph ph-trend-up" style="font-size:25px;line-height:1"></i>
+          </span>
+          <h3 style="margin:52px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">Llega a la visita ya decidido</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty">Ya vio la distribución, el tamaño y la vista. No estás explicando la planta: estás cerrando. Menos días en mercado, más propiedades movidas al mes.</p>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:26px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 44px -26px rgba(0,0,0,.4)">
+          <span style="display:flex;width:52px;height:52px;border-radius:15px;background:#004346;color:#fff;align-items:center;justify-content:center;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">
+            <i class="ph ph-key" style="font-size:25px;line-height:1"></i>
+          </span>
+          <h3 style="margin:52px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">Te ganas la exclusiva</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty">El propietario firma con quien llega con mejor material a esa reunión. Y nadie más en Cali llega con un escaneo 3D del apartamento.</p>
+        </div>
+      </div>
+
+      <!-- CTA intermedio -->
+      <div data-reveal="" data-ctaband="" style="margin-top:clamp(16px,1.8vw,20px);background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:clamp(22px,2.6vw,30px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
+        <div style="display:flex;flex-direction:column;gap:6px;flex:1 1 300px">
+          <span style="font-size:clamp(19px,1.9vw,24px);font-weight:700;letter-spacing:-.025em;color:#172A3A;text-wrap:pretty">¿Cuál es la propiedad que llevas más tiempo sin vender?</span>
+          <span style="font-size:15px;line-height:1.7;color:#3F5A66;text-wrap:pretty">Esa es la que escaneamos gratis. Mándanos la dirección por WhatsApp y coordinamos.</span>
+        </div>
+        <a href="https://wa.me/573011493222?text=Hola%2C%20tengo%20una%20propiedad%20que%20no%20he%20podido%20vender%20y%20quiero%20escanearla%20gratis." target="_blank" rel="noopener" style="flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;padding:15px 24px;border-radius:12px;background:#172A3A;color:#fff;font-size:15.5px;font-weight:600;box-shadow:0 14px 26px -16px rgba(0,0,0,.85);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#004346;color:#fff">
+          <i class="ph-fill ph-whatsapp-logo" style="font-size:18px;line-height:1;color:#35C598"></i>
+          Escanear esa propiedad
+        </a>
+      </div>
+    </section>
+
+    <!-- ── MARQUEE DE BARRIOS ── -->
+    <div data-marquee="" style="margin-top:clamp(28px,3.4vw,44px);padding:18px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)">
+      <div style="display:flex;width:max-content;animation-name:vis-marquee;animation-timing-function:linear;animation-iteration-count:infinite;animation-duration:{{ marqueeDur }}">
+        <div style="display:flex;align-items:center;gap:clamp(30px,4vw,58px);padding-right:clamp(30px,4vw,58px)">
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Ciudad Jardín</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">El Peñón</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Granada</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Santa Teresita</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Pance</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Normandía</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">San Fernando</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:clamp(30px,4vw,58px);padding-right:clamp(30px,4vw,58px)" aria-hidden="true">
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Ciudad Jardín</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">El Peñón</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Granada</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Santa Teresita</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Pance</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">Normandía</span>
+          <span style="font-size:15px;font-weight:500;color:#3F5A66;white-space:nowrap">San Fernando</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GALERÍA DE TOURS (carrusel) ── -->
+    <section id="tours" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#E4EDEE;border:1px solid #CBDCDE;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#3F5A66">Tours</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#172A3A">Así se ve tu<br /><span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">propiedad</span> por dentro</h2>
+      </div>
+      <div data-reveal="" style="margin-top:clamp(30px,3.6vw,48px);position:relative">
+        <div style="overflow:hidden;border-radius:22px">
+          <div style="display:flex;gap:16px;will-change:transform;transition:transform .65s cubic-bezier(.22,.8,.2,1);transform:{{ trackX }}">
+            <sc-for list="{{ slides }}" as="s" hint-placeholder-count="3">
+              <article data-zoom="" style="flex:0 0 {{ slideBasis }};position:relative;aspect-ratio:.575;border-radius:22px;overflow:hidden;background:#D6E2E3">
+                <span data-zoom-img="" style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#DBE6E7 0 10px,#C9D8DA 10px 20px);display:flex;align-items:center;justify-content:center">
+                  <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;letter-spacing:.04em;color:#83989F;text-align:center;padding:0 18px">{{ s.ph }}</span>
+                </span>
+                <span style="position:absolute;left:0;right:0;bottom:0;height:58%;background:linear-gradient(180deg,transparent,rgba(10,10,10,.82))"></span>
+                <div style="position:absolute;left:20px;right:20px;bottom:22px;color:#fff">
+                  <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:rgba(255,255,255,.9)">
+                    <i class="ph {{ s.icon }}" style="font-size:14px;line-height:1"></i>
+                    {{ s.badge }}
+                  </span>
+                  <h3 style="margin:10px 0 0;font-size:22px;font-weight:700;letter-spacing:-.02em">{{ s.title }}</h3>
+                  <p style="margin:5px 0 0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.72)">{{ s.sub }}</p>
+                </div>
+              </article>
+            </sc-for>
+          </div>
+        </div>
+        <button type="button" aria-label="Anterior" onClick="{{ prev }}" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:999px;border:none;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);color:#172A3A;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 18px -10px rgba(0,0,0,.6);transition:background .2s,transform .2s" style-hover="background:#fff;transform:translateY(-50%) scale(1.07)">
+          <i class="ph ph-caret-left" style="font-size:15px;line-height:1"></i>
+        </button>
+        <button type="button" aria-label="Siguiente" onClick="{{ next }}" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:999px;border:none;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);color:#172A3A;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 18px -10px rgba(0,0,0,.6);transition:background .2s,transform .2s" style-hover="background:#fff;transform:translateY(-50%) scale(1.07)">
+          <i class="ph ph-caret-right" style="font-size:15px;line-height:1"></i>
+        </button>
+      </div>
+      <div data-reveal="" style="margin-top:22px;display:flex;justify-content:center">
+        <div style="display:flex;align-items:center;gap:7px;padding:12px 14px;border-radius:999px;background:#E1EAEB">
+          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+            <button type="button" aria-label="Ir al tour" onClick="{{ d.go }}" style="height:6px;border:none;padding:0;cursor:pointer;border-radius:999px;transition:width .3s,background .3s;width:{{ d.w }};background:{{ d.bg }}"></button>
+          </sc-for>
+        </div>
+      </div>
+      <div data-reveal="" style="margin-top:20px;display:flex;justify-content:center">
+        <a href="https://wa.me/573011493222?text=Hola%2C%20me%20gustar%C3%ADa%20ver%20un%20tour%20virtual%20de%20ejemplo." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-size:15.5px;font-weight:600;color:#0B3B36;border-bottom:2px solid #16785A;padding-bottom:3px;transition:opacity .2s" style-hover="opacity:.7;color:#0B3B36">
+          <i class="ph-fill ph-whatsapp-logo" style="font-size:18px;line-height:1;color:#16785A"></i>
+          Pídeme un tour de ejemplo por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- ── CÓMO FUNCIONA ── -->
+    <section id="como-funciona" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#E4EDEE;border:1px solid #CBDCDE;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#3F5A66">Qué incluye</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#172A3A">Lo que tu comprador<br />hace <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">sin salir</span> de su casa</h2>
+      </div>
+      <div data-3col="" style="margin-top:clamp(34px,4vw,54px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,16px)">
+        <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
+          <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#004346;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)"><i class="ph ph-cube" style="font-size:23px;line-height:1"></i></span>
+          <video src="assets/tour-vista-muneca.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
+          <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">Vista de muñeca</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty">El apartamento entero en 3D, abierto como una casa de muñecas. Tu comprador entiende la distribución completa en tres segundos. Veinte fotos no logran eso.</p>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
+          <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#004346;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)"><i class="ph ph-magic-wand" style="font-size:23px;line-height:1"></i></span>
+          <video src="assets/tour-quita-muebles.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
+          <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">Quita muebles</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty">El apartamento está habitado y el estilo del propietario no siempre ayuda a vender. Quitamos los muebles digitalmente y el comprador ve el espacio real.</p>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
+          <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#004346;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)"><i class="ph ph-ruler" style="font-size:23px;line-height:1"></i></span>
+          <video src="assets/tour-medicion.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
+          <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">Medición en vivo</h3>
+          <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty">Tu comprador mide cualquier pared, ventana o espacio desde el mismo link. Se acabó el "¿y ahí me cabe el clóset?" por WhatsApp.</p>
+        </div>
+      </div>
+
+      <!-- ── TESTIMONIO ── -->
+      <div data-reveal="" style="margin-top:clamp(38px,4.6vw,66px);position:relative;max-width:992px;margin-left:auto;margin-right:auto">
+        <span style="position:absolute;left:24px;top:-24px;z-index:2;display:flex;width:48px;height:48px;border-radius:14px;background:#004346;color:#fff;align-items:center;justify-content:center;box-shadow:0 12px 22px -12px rgba(0,0,0,.9)">
+          <i class="ph ph-quotes" style="font-size:22px;line-height:1"></i>
+        </span>
+        <div data-testimonial="" style="display:grid;grid-template-columns:1.257fr 1fr;gap:17px;align-items:center">
+          <div data-quote="" style="background:#fff;border:1px solid #DCE6E7;border-radius:18px;padding:34px 32px 30px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 20px 40px -30px rgba(0,0,0,.4)">
+            <p style="margin:0;max-width:430px;font-size:clamp(18px,1.6vw,22px);line-height:1.45;font-weight:600;letter-spacing:-.02em;color:#172A3A;text-wrap:pretty">“Lumen 360 nació con una idea simple: que el comprador recorra la propiedad completa antes de pedirte una cita.”</p>
+            <div style="margin-top:26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+              <div style="display:flex;align-items:center;gap:11px">
+                <span style="width:38px;height:38px;border-radius:999px;background:#172A3A;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;flex:0 0 auto">L</span>
+                <span style="display:flex;flex-direction:column;gap:2px">
+                  <span style="font-size:15px;font-weight:600;color:#172A3A">Lumen 360</span>
+                  <span style="font-size:13px;color:#7C919C">Cali, Colombia</span>
+                </span>
+              </div>
+              <a href="https://wa.me/573011493222?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Lumen%20360." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:#0B3B36;transition:opacity .2s" style-hover="opacity:.7;color:#0B3B36">
+                <i class="ph-fill ph-whatsapp-logo" style="font-size:17px;line-height:1;color:#16785A"></i>
+                Hablar con nosotros
+              </a>
+            </div>
+          </div>
+          <div data-zoom="" style="position:relative;z-index:1;aspect-ratio:1.57;border-radius:16px;overflow:hidden;box-shadow:0 30px 55px -34px rgba(0,0,0,.6)">
+            <span data-zoom-img="" style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#DBE6E7 0 10px,#C9D8DA 10px 20px);display:flex;align-items:center;justify-content:center">
+              <span style="font:500 11px/1.5 ui-monospace,SFMono-Regular,monospace;color:#83989F;text-align:center;padding:0 18px">foto — escaneo en sitio con la cámara</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OFERTA DE ENTRADA + 3 PASOS ── -->
+    <section id="oferta" style="width:100%">
+      <div style="background:#0B3B36;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px)">
+        <div data-reveal="" style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.24);font-size:13px;font-weight:500;color:#fff">Oferta de entrada</span>
+          <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#fff">Tu primer tour virtual<br />va por nuestra <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">cuenta</span></h2>
+          <p style="margin:22px 0 0;max-width:660px;font-size:17px;line-height:1.8;color:rgba(255,255,255,.78);text-wrap:pretty">Escoge la propiedad que llevas más tiempo sin vender. Te la escaneamos completa, sin costo y sin compromiso.<br />Si te sirve, hablamos de la siguiente. Si no, te quedas con el tour de todas formas.</p>
+          <a href="https://wa.me/573011493222?text=Hola%2C%20quiero%20reclamar%20mi%20tour%20virtual%20gratis.%20Esta%20es%20la%20propiedad%3A%20" target="_blank" rel="noopener" style="margin-top:30px;display:inline-flex;align-items:center;gap:11px;padding:19px 32px;border-radius:14px;background:#35C598;color:#04241B;font-size:17px;font-weight:700;letter-spacing:-.01em;box-shadow:0 18px 34px -18px rgba(53,197,152,.55);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#4FD6AC;color:#04241B">
+            <i class="ph-fill ph-whatsapp-logo" style="font-size:21px;line-height:1"></i>
+            Reclamar mi tour gratis
+          </a>
+          <p style="margin:16px 0 0;max-width:540px;font-size:13px;line-height:1.7;color:rgba(255,255,255,.6);text-wrap:pretty">Un tour por asesor. Propiedad en Cali, amoblada y actualmente en tu portafolio.</p>
+
+          <div data-steps="" style="margin-top:clamp(38px,4.4vw,60px);width:100%;max-width:1000px;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,16px);text-align:left">
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:24px">
+              <span style="display:flex;width:38px;height:38px;border-radius:11px;background:rgba(53,197,152,.18);color:#35C598;align-items:center;justify-content:center;font-size:15px;font-weight:700">1</span>
+              <h3 style="margin:18px 0 0;font-size:17px;font-weight:700;letter-spacing:-.02em;color:#fff">Escribes por WhatsApp</h3>
+              <p style="margin:8px 0 0;font-size:15px;line-height:1.7;color:rgba(255,255,255,.7);text-wrap:pretty">Nos mandas la dirección y coordinamos el día de la visita.</p>
+            </div>
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:24px">
+              <span style="display:flex;width:38px;height:38px;border-radius:11px;background:rgba(53,197,152,.18);color:#35C598;align-items:center;justify-content:center;font-size:15px;font-weight:700">2</span>
+              <h3 style="margin:18px 0 0;font-size:17px;font-weight:700;letter-spacing:-.02em;color:#fff">Escaneamos la propiedad</h3>
+              <p style="margin:8px 0 0;font-size:15px;line-height:1.7;color:rgba(255,255,255,.7);text-wrap:pretty">Una o dos horas en sitio. No movemos nada del propietario.</p>
+            </div>
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:24px">
+              <span style="display:flex;width:38px;height:38px;border-radius:11px;background:rgba(53,197,152,.18);color:#35C598;align-items:center;justify-content:center;font-size:15px;font-weight:700">3</span>
+              <h3 style="margin:18px 0 0;font-size:17px;font-weight:700;letter-spacing:-.02em;color:#fff">Te llega el link</h3>
+              <p style="margin:8px 0 0;font-size:15px;line-height:1.7;color:rgba(255,255,255,.7);text-wrap:pretty">En 24 horas, listo para mandar por WhatsApp o publicar en portales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRECIO ── -->
+    <section id="precios" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#E4EDEE;border:1px solid #CBDCDE;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#3F5A66">Precio</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#172A3A">Pagas por propiedad.<br />Sin <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">mensualidad</span>.</h2>
+      </div>
+      <div data-pricing="" style="margin-top:clamp(30px,3.6vw,46px);display:grid;grid-template-columns:.39fr .61fr;gap:clamp(16px,2vw,32px);align-items:start">
+        <div data-pricing-stack="" data-reveal="" style="height:620px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 78%,transparent);mask-image:linear-gradient(180deg,#000 78%,transparent)">
+          <div style="display:flex;flex-direction:column;gap:16px;animation:vis-vscroll 26s linear infinite">
+            <sc-for list="{{ stackTwice }}" as="p" hint-placeholder-count="6">
+              <div style="flex:0 0 auto;background:#fff;border:1px solid #DCE6E7;border-radius:16px;padding:22px 22px 24px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 20px 40px -32px rgba(0,0,0,.5);transition:transform .7s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.02)">
+                <div style="display:flex;align-items:center;gap:12px">
+                  <span style="flex:0 0 auto;width:44px;height:44px;border-radius:14px;background:#004346;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;letter-spacing:.01em;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">{{ p.initials }}</span>
+                  <span style="font-size:15px;font-weight:600;letter-spacing:-.01em;color:#172A3A;text-align:left">{{ p.name }}</span>
+                </div>
+                <p style="margin:16px 0 0;font-size:16.5px;line-height:1.55;font-weight:500;letter-spacing:-.015em;color:#26414F;text-align:left;text-wrap:pretty">{{ p.quote }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:24px;padding:clamp(24px,2.4vw,32px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 50px -34px rgba(0,0,0,.45)">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+            <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#004346;color:#fff;align-items:center;justify-content:center;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)">
+              <i class="ph ph-cube" style="font-size:23px;line-height:1"></i>
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;background:#E8F4EF;border:1px solid #B9DCCC;font-size:12.5px;font-weight:600;color:#0B3B36">
+              <i class="ph-fill ph-gift" style="font-size:14px;line-height:1;color:#16785A"></i>
+              El primero, gratis
+            </span>
+          </div>
+          <h3 style="margin:26px 0 0;font-size:clamp(20px,1.9vw,26px);font-weight:700;letter-spacing:-.025em;color:#172A3A">Tour virtual 360°</h3>
+          <p style="margin:10px 0 0;max-width:400px;font-size:15px;line-height:1.7;color:#47646F;text-wrap:pretty">Escaneo completo de la propiedad con Matterport. Un link que recorre por ti, 24 horas al día.</p>
+          <div style="margin-top:20px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+            <span style="font-size:15px;color:#7C919C">desde</span>
+            <span style="font-size:clamp(28px,2.8vw,36px);font-weight:700;letter-spacing:-.035em;color:#172A3A">$500.000</span>
+            <span style="font-size:15px;color:#7C919C">/ por propiedad</span>
+          </div>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:20px">
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#3F5A66">
+              <i class="ph ph-compass" style="font-size:17px;line-height:1.1;color:#3F5A66"></i>
+              Recorrido 360° navegable, habitación por habitación
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#3F5A66">
+              <i class="ph ph-cube-transparent" style="font-size:17px;line-height:1.1;color:#3F5A66"></i>
+              Vista muñeca: la distribución completa en 3 segundos
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#3F5A66">
+              <i class="ph ph-ruler" style="font-size:17px;line-height:1.1;color:#3F5A66"></i>
+              Medición en vivo de cualquier espacio
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#3F5A66">
+              <i class="ph ph-broom" style="font-size:17px;line-height:1.1;color:#3F5A66"></i>
+              Muebles fuera: limpieza digital del apartamento
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#3F5A66">
+              <i class="ph ph-camera" style="font-size:17px;line-height:1.1;color:#3F5A66"></i>
+              Fotografías tomadas por profesional
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#3F5A66">
+              <i class="ph ph-browser" style="font-size:17px;line-height:1.1;color:#3F5A66"></i>
+              Landing page profesional de la propiedad
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#3F5A66">
+              <i class="ph ph-link-simple" style="font-size:17px;line-height:1.1;color:#3F5A66"></i>
+              Link listo para WhatsApp, Instagram y portales
+            </span>
+            <span style="display:flex;align-items:center;gap:13px;font-size:15px;color:#3F5A66">
+              <i class="ph ph-clock" style="font-size:17px;line-height:1.1;color:#3F5A66"></i>
+              Entrega en 24 horas
+            </span>
+          </div>
+          <a href="https://wa.me/573011493222?text=Hola%2C%20quiero%20empezar%20con%20mi%20tour%20virtual%20360%20gratis." target="_blank" rel="noopener" style="margin-top:28px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 22px;border-radius:14px;background:#0B3B36;color:#fff;font-size:16px;font-weight:600;box-shadow:0 16px 30px -18px rgba(0,0,0,.9);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#172A3A;color:#fff">
+            <i class="ph-fill ph-whatsapp-logo" style="font-size:19px;line-height:1;color:#35C598"></i>
+            Empezar con mi tour gratis
+          </a>
+          <p style="margin:14px 0 0;text-align:center;font-size:13px;line-height:1.6;color:#7C919C;text-wrap:pretty">El primer tour va por nuestra cuenta. Sin contrato, sin mensualidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section id="faq" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(56px,9.4vw,136px) clamp(20px,4vw,60px) 0">
+      <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <span style="display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#E4EDEE;border:1px solid #CBDCDE;box-shadow:0 1px 2px rgba(0,0,0,.04);font-size:13px;font-weight:500;color:#3F5A66">Preguntas</span>
+        <h2 style="margin:20px 0 0;font-size:clamp(32px,5.2vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:800;color:#172A3A">Lo que casi siempre<br />nos <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:-.02em">preguntan</span></h2>
+      </div>
+      <div data-reveal="" style="margin-top:clamp(30px,3.6vw,46px);max-width:608px;margin-left:auto;margin-right:auto;background:#fff;border:1px solid #DCE6E7;border-radius:22px;padding:clamp(20px,2.2vw,30px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 26px 50px -36px rgba(0,0,0,.45)">
+        <div data-faq-head="" style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <span style="font-size:13px;color:#7C919C">WhatsApp</span>
+            <a href="https://wa.me/573011493222?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20los%20tours%20virtuales%20360." target="_blank" rel="noopener" style="font-size:15px;font-weight:600;color:#172A3A;text-decoration:underline;text-underline-offset:3px">+57 301 149 3222</a>
+          </div>
+          <a href="https://wa.me/573011493222?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20los%20tours%20virtuales%20360." target="_blank" rel="noopener" style="flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:12px;background:#172A3A;color:#fff;font-size:14px;font-weight:600;box-shadow:0 14px 26px -16px rgba(0,0,0,.85);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#004346;color:#fff">
+            <i class="ph-fill ph-whatsapp-logo" style="font-size:16px;line-height:1;color:#35C598"></i>
+            Preguntar ahora
+          </a>
+        </div>
+        <div style="margin-top:22px;display:flex;flex-direction:column">
+          <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+            <div style="border-top:1px solid #DCE6E7">
+              <button type="button" onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 4px;background:none;border:none;cursor:pointer;text-align:left;color:#172A3A;transition:color .2s" style-hover="color:#3F5A66">
+                <span style="font-size:16px;font-weight:500">{{ f.q }}</span>
+                <span style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#172A3A;color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.2,.8,.2,1);transform:{{ f.rot }}">
+                  <i class="ph ph-plus" style="font-size:13px;line-height:1"></i>
+                </span>
+              </button>
+              <div style="display:grid;overflow:hidden;transition:grid-template-rows .45s cubic-bezier(.22,.8,.2,1),opacity .35s ease;grid-template-rows:{{ f.rows }};opacity:{{ f.op }}">
+                <div style="min-height:0">
+                  <p style="margin:-4px 4px 20px 0;max-width:520px;font-size:15px;line-height:1.75;color:#3F5A66;text-wrap:pretty">{{ f.a }}</p>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <div style="height:clamp(40px,6vw,90px)"></div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer style="max-width:1320px;margin:clamp(10px,1.6vw,22px) auto 0;background:#fff;border-radius:clamp(18px,2vw,30px);padding:clamp(34px,4vw,58px) clamp(20px,9vw,130px) clamp(20px,2.4vw,30px)">
+    <div data-footer-top="" data-reveal="" style="display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,4vw,60px)">
+      <div>
+        <a href="#top" style="display:flex;align-items:center;gap:9px">
+          <span style="width:26px;height:26px;border-radius:8px;background:#172A3A;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:14px">L</span>
+          <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;font-weight:500">Lumen 360</span>
+        </a>
+        <h3 style="margin:20px 0 0;max-width:330px;font-size:clamp(22px,2.6vw,34px);line-height:1.18;letter-spacing:-.035em;font-weight:700;color:#172A3A">Tours virtuales para <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500">vender</span> en Cali</h3>
+        <a href="https://wa.me/573011493222?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Lumen%20360." target="_blank" rel="noopener" style="margin-top:20px;display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border-radius:12px;background:#15805F;color:#fff;font-size:15px;font-weight:600;box-shadow:0 12px 22px -14px rgba(21,128,95,.85);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-2px);background:#0F6B4E;color:#fff">
+          <i class="ph-fill ph-whatsapp-logo" style="font-size:18px;line-height:1"></i>
+          +57 301 149 3222
+        </a>
+        <div style="margin-top:22px;display:flex;gap:9px">
+          <a href="https://wa.me/573011493222" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:38px;height:38px;border-radius:11px;background:#172A3A;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s" style-hover="background:#004346;transform:translateY(-2px);color:#fff">
+            <i class="ph-fill ph-whatsapp-logo" style="font-size:16px;line-height:1"></i>
+          </a>
+          <a href="#top" aria-label="Instagram" style="width:38px;height:38px;border-radius:11px;background:#172A3A;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s" style-hover="background:#004346;transform:translateY(-2px);color:#fff">
+            <i class="ph ph-instagram-logo" style="font-size:16px;line-height:1"></i>
+          </a>
+          <a href="#top" aria-label="Facebook" style="width:38px;height:38px;border-radius:11px;background:#172A3A;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s" style-hover="background:#004346;transform:translateY(-2px);color:#fff">
+            <i class="ph ph-facebook-logo" style="font-size:16px;line-height:1"></i>
+          </a>
+        </div>
+      </div>
+      <div data-links-2col="" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:17px">
+          <span style="font-size:14px;font-weight:600;color:#172A3A">Navegar</span>
+          <a href="#servicios" style="font-size:15px;color:#3F5A66;transition:color .2s" style-hover="color:#172A3A">Para el asesor</a>
+          <a href="#tours" style="font-size:15px;color:#3F5A66;transition:color .2s" style-hover="color:#172A3A">Tours</a>
+          <a href="#como-funciona" style="font-size:15px;color:#3F5A66;transition:color .2s" style-hover="color:#172A3A">Cómo funciona</a>
+          <a href="#precios" style="font-size:15px;color:#3F5A66;transition:color .2s" style-hover="color:#172A3A">Precio</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:17px">
+          <span style="font-size:14px;font-weight:600;color:#172A3A">Contacto</span>
+          <a href="https://wa.me/573011493222?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Lumen%20360." target="_blank" rel="noopener" style="font-size:15px;color:#3F5A66;transition:color .2s" style-hover="color:#172A3A">WhatsApp</a>
+          <a href="tel:+573011493222" style="font-size:15px;color:#3F5A66;transition:color .2s" style-hover="color:#172A3A">+57 301 149 3222</a>
+          <a href="mailto:hola@lumen360.co" style="font-size:15px;color:#3F5A66;transition:color .2s" style-hover="color:#172A3A">hola@lumen360.co</a>
+          <a href="#faq" style="font-size:15px;color:#3F5A66;transition:color .2s" style-hover="color:#172A3A">Preguntas frecuentes</a>
+        </div>
+      </div>
+    </div>
+    <div data-footbar="" data-reveal="" style="margin-top:clamp(30px,3.4vw,48px);padding-top:18px;border-top:1px solid #DCE6E7;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <span style="font-size:13px;color:#7C919C">© 2026 Lumen 360 · Cali, Colombia</span>
+      <span style="font-size:13px;color:#7C919C">Tours virtuales 360° para inmobiliarias y asesores</span>
+    </div>
+  </footer>
+
+  <!-- ══ BOTÓN FLOTANTE DE WHATSAPP ══ -->
+  <sc-if value="{{ showFab }}" hint-placeholder-val="{{ true }}">
+    <a href="https://wa.me/573011493222?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20tour%20virtual%20gratis." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" style="position:fixed;right:clamp(14px,2vw,26px);bottom:clamp(14px,2vw,26px);z-index:60;display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;background:#15805F;color:#fff;font-size:15px;font-weight:700;letter-spacing:-.01em;box-shadow:0 18px 34px -14px rgba(4,36,27,.55);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s" style-hover="transform:translateY(-3px);background:#0F6B4E;color:#fff" style-before="content:'';position:absolute;inset:0;border-radius:999px;border:2px solid rgba(21,128,95,.65);animation:vis-ring 2.4s cubic-bezier(.2,.8,.2,1) infinite;pointer-events:none">
+      <i class="ph-fill ph-whatsapp-logo" style="font-size:22px;line-height:1"></i>
+      <span data-fab-label="">Escríbenos</span>
+    </a>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;showFab&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;galleryAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;marqueeSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:26,&quot;min&quot;:8,&quot;max&quot;:60,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;faqAllowMultiple&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;}}">
+class Component extends DCLogic {
+  state = { slide: 0, perView: 3, faqOpen: 0 };
+  heroVideo = React.createRef();
+
+  base = [
+    { icon: 'ph-map-pin', badge: 'Ciudad Jardín', title: 'Apartamento 3 alcobas', sub: 'Recorrido completo + vista de muñeca.', ph: 'tour — sala y comedor con doble altura' },
+    { icon: 'ph-map-pin', badge: 'El Peñón', title: 'Loft remodelado', sub: 'Escaneo con muebles retirados.', ph: 'tour — loft con ventanal a la calle' },
+    { icon: 'ph-map-pin', badge: 'Granada', title: 'Penthouse con terraza', sub: 'Medición en vivo de cada espacio.', ph: 'tour — terraza con vista a los cerros' }
+  ];
+
+  stack = [
+    { initials: 'AM', name: 'Andrés Muñoz', role: '', quote: '“Antes sacaba una tarde entera para mostrar seis apartamentos. Ahora les mando el link, ellos escogen, y salgo a mostrar dos. Recorro mucho menos la ciudad y el cliente llega decidido.”' },
+    { initials: 'CR', name: 'Carolina Rivas', role: '', quote: '“Vendí un apartamento a un cliente que estaba en Miami. Lo recorrió completo por el tour, hicimos una videollamada y cerró sin venir a Cali.”' },
+    { initials: 'JT', name: 'Julián Torres', role: '', quote: '“[Espacio reservado para el tercer testimonio.]”' }
+  ];
+
+  faqData = [
+    { q: '¿Cuánto cuesta un tour?', a: 'Desde $500.000 por propiedad, sin mensualidad ni contrato. El primero va por nuestra cuenta, así que puedes probarlo sin arriesgar nada.' },
+    { q: '¿En cuánto tiempo lo tengo listo?', a: 'Escaneamos la propiedad en una visita de una a dos horas y te entregamos el link en 24 horas.' },
+    { q: '¿Qué necesito tener listo el día del escaneo?', a: 'Solo el acceso a la propiedad y las luces encendidas. Nosotros llevamos el equipo y no movemos nada del propietario.' },
+    { q: '¿El tour abre en el celular de mi cliente?', a: 'Sí. Es un link que abre en cualquier navegador, sin descargar nada. Lo mandas por WhatsApp, lo pones en Instagram o en el portal donde publicas.' },
+    { q: '¿El apartamento está amoblado y se ve recargado?', a: 'Quitamos los muebles digitalmente para que el comprador vea el espacio real, sin que tengas que pedirle nada al propietario.' },
+    { q: '¿Cubren toda Cali?', a: 'Cali y municipios cercanos. Escríbenos por WhatsApp con la dirección y te confirmamos de una vez.' }
+  ];
+
+  get slides() { return this.base.concat(this.base); }
+
+  componentDidMount() {
+    const v = this.heroVideo && this.heroVideo.current;
+    if (v) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    this.fit = () => {
+      const w = window.innerWidth;
+      const n = w >= 1024 ? 3 : w >= 680 ? 2 : 1;
+      this.setState(s => ({ perView: n, slide: Math.min(s.slide, this.slides.length - n) }));
+    };
+    this.fit();
+    window.addEventListener('resize', this.fit);
+    if (this.props.galleryAutoplay !== false) this.timer = setInterval(() => this.go(1), 5000);
+    this.setupMotion();
+    this.motionRescan = [setTimeout(() => this.setupMotion(), 400), setTimeout(() => this.setupMotion(), 1600)];
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.fit);
+    clearInterval(this.timer);
+    (this.motionRescan || []).forEach(clearTimeout);
+    if (this.onScroll) window.removeEventListener('scroll', this.onScroll);
+    if (this.io) this.io.disconnect();
+  }
+
+  setupMotion() {
+    if (this.props.motion === false) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const E = 'cubic-bezier(.22,.8,.2,1)';
+    const prep = el => {
+      if (el.dataset.motionReady) return false;
+      el.dataset.motionReady = '1';
+      el.style.willChange = 'opacity,transform,filter';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.filter = 'blur(7px)';
+      el.style.transition = 'opacity .85s ' + E + ', transform .85s ' + E + ', filter .85s ' + E;
+      return true;
+    };
+    const show = (el, d) => setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.filter = 'none';
+      setTimeout(() => { el.style.willChange = ''; el.style.transition = ''; }, 1200);
+    }, d);
+
+    document.querySelectorAll('[data-enter]').forEach((el, i) => { if (prep(el)) show(el, 140 + i * 110); });
+
+    if (!this.io) this.io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        this.io.unobserve(e.target);
+        const sibs = Array.from(e.target.parentElement.children).filter(n => n.hasAttribute('data-reveal'));
+        show(e.target, Math.max(0, sibs.indexOf(e.target)) * 95);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    document.querySelectorAll('[data-reveal]').forEach(el => { if (prep(el)) this.io.observe(el); });
+
+    this.para = Array.from(document.querySelectorAll('[data-parallax]'));
+    if (!this.onScroll) {
+      this.onScroll = () => {
+        if (this.raf) return;
+        this.raf = requestAnimationFrame(() => {
+          this.raf = null;
+          const vh = window.innerHeight || 800;
+          this.para.forEach(el => {
+            const r = el.getBoundingClientRect();
+            const p = (r.top + r.height / 2 - vh / 2) / vh;
+            el.style.translate = '0 ' + (p * -30).toFixed(1) + 'px';
+          });
+        });
+      };
+      window.addEventListener('scroll', this.onScroll, { passive: true });
+      this.onScroll();
+    }
+    clearTimeout(this.motionSafety);
+    this.motionSafety = setTimeout(() => {
+      document.querySelectorAll('[data-reveal]').forEach(el => {
+        if (el.style.opacity === '0' && el.getBoundingClientRect().top < (window.innerHeight || 800)) show(el, 0);
+      });
+    }, 2600);
+  }
+
+  go(d) {
+    this.setState(s => {
+      const max = this.slides.length - s.perView;
+      let n = s.slide + d;
+      if (n > max) n = 0;
+      if (n < 0) n = max;
+      return { slide: n };
+    });
+  }
+
+  renderVals() {
+    const gap = 16;
+    const n = this.state.perView;
+    const step = `((100% - ${(n - 1) * gap}px) / ${n} + ${gap}px)`;
+    const max = this.slides.length - n;
+    return {
+      slides: this.slides,
+      stackTwice: this.stack.concat(this.stack),
+      showFab: this.props.showFab !== false,
+      slideBasis: `calc((100% - ${(n - 1) * gap}px) / ${n})`,
+      trackX: `translateX(calc(${-this.state.slide} * ${step}))`,
+      marqueeDur: (this.props.marqueeSpeed || 26) + 's',
+      heroVideo: this.heroVideo,
+      prev: () => { clearInterval(this.timer); this.go(-1); },
+      next: () => { clearInterval(this.timer); this.go(1); },
+      dots: this.slides.map((_, i) => ({
+        w: i === this.state.slide ? '18px' : '6px',
+        bg: i === this.state.slide ? '#16785A' : '#B6C7CA',
+        go: () => { clearInterval(this.timer); this.setState({ slide: Math.min(i, max) }); }
+      })),
+      faqs: this.faqData.map((f, i) => ({
+        q: f.q,
+        a: f.a,
+        open: this.state.faqOpen === i,
+        rows: this.state.faqOpen === i ? '1fr' : '0fr',
+        op: this.state.faqOpen === i ? '1' : '0',
+        rot: this.state.faqOpen === i ? 'rotate(45deg)' : 'rotate(0deg)',
+        toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? null : i }))
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

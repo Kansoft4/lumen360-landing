@@ -182,7 +182,7 @@
     {
       "@type": "VideoObject",
       "name": "Recorrido 360° de un apartamento en Cali con vista a la ciudad",
-      "description": "Recorrido en video por un apartamento en Cali con ventanales de piso a techo, doble altura y vista abierta a la ciudad. Muestra el tipo de propiedad que Lumen 360 escanea para inmobiliarias y asesores.",
+      "description": "Recorrido en video por un apartamento en Cali con ventanales de piso a techo y vista a la ciudad, tal como lo navega un comprador desde el link del tour virtual. Sin audio.",
       "contentUrl": "https://lumen.inovarem.com/assets/reel_loop_3.mp4",
       "uploadDate": "2026-08-21",
       "isFamilyFriendly": true,
@@ -190,50 +190,43 @@
       "publisher": {
         "@id": "https://lumen.inovarem.com/#organizacion"
       },
-      "thumbnailUrl": "https://lumen.inovarem.com/assets/hero-loft-hd.jpg",
-      "duration": "PT6S"
+      "thumbnailUrl": "https://lumen.inovarem.com/assets/hero-loft-hd.jpg"
     },
     {
       "@type": "VideoObject",
       "name": "Vista de muñeca: el apartamento entero en 3D",
-      "description": "Vista de casa de muñecas de un tour virtual Matterport. El modelo 3D del apartamento rota mostrando la planta completa sin techo: se ven los dormitorios, los baños, la cocina, el pasillo y el cuarto de almacenamiento, cada uno rotulado con su nombre. El comprador entiende de una sola mirada cómo se conectan los espacios y por dónde se circula, algo que una galería de fotos sueltas no comunica.",
+      "description": "Demostración de la vista de casa de muñecas de un tour virtual Matterport: el apartamento completo en 3D, abierto por encima, de modo que se ve de una sola mirada cómo se conectan los espacios. Una galería de fotos no muestra esa relación entre ambientes. Sin audio.",
       "contentUrl": "https://lumen.inovarem.com/assets/tour-vista-muneca.mp4",
       "uploadDate": "2026-08-21",
       "isFamilyFriendly": true,
       "inLanguage": "es-CO",
       "publisher": {
         "@id": "https://lumen.inovarem.com/#organizacion"
-      },
-      "duration": "PT4S",
-      "thumbnailUrl": "https://lumen.inovarem.com/assets/tour-vista-muneca-poster.jpg"
+      }
     },
     {
       "@type": "VideoObject",
       "name": "Quita muebles: el espacio real sin el estilo del propietario",
-      "description": "Borrado digital de muebles dentro de un tour virtual 360°. La secuencia arranca en una sala comedor amoblada, con mesa, plantas, cuadros y objetos del propietario, y termina en el mismo espacio vacío, conservando piso, paredes, ventanales y luminarias. Sirve cuando el apartamento está habitado y la decoración no ayuda a vender: el comprador ve el espacio real sin que haya que pedirle nada al propietario.",
+      "description": "Demostración del borrado digital de muebles en un tour virtual 360°. El estilo de decoración del propietario no siempre ayuda a vender; al retirar los muebles digitalmente queda a la vista el espacio real y sus dimensiones, sin pedirle nada al dueño. Sin audio.",
       "contentUrl": "https://lumen.inovarem.com/assets/tour-quita-muebles.mp4",
       "uploadDate": "2026-08-21",
       "isFamilyFriendly": true,
       "inLanguage": "es-CO",
       "publisher": {
         "@id": "https://lumen.inovarem.com/#organizacion"
-      },
-      "duration": "PT5S",
-      "thumbnailUrl": "https://lumen.inovarem.com/assets/tour-quita-muebles-poster.jpg"
+      }
     },
     {
       "@type": "VideoObject",
       "name": "Medición en vivo dentro del tour virtual",
-      "description": "Herramienta de medición dentro de un tour virtual Matterport. Sobre la cocina del apartamento el cursor traza una línea de punto a punto a lo largo del mesón y aparece la medida en metros, 2,73 m, junto a otras cotas ya tomadas del mismo espacio. El comprador puede medir cualquier pared, ventana o mueble desde el mismo link, sin visitar la propiedad ni preguntarle al asesor.",
+      "description": "Demostración de la herramienta de medición de un tour virtual Matterport: el comprador mide cualquier pared o espacio desde el mismo link, sin visitar el inmueble y sin preguntarle al asesor por WhatsApp si le cabe un mueble. Sin audio.",
       "contentUrl": "https://lumen.inovarem.com/assets/tour-medicion.mp4",
       "uploadDate": "2026-08-21",
       "isFamilyFriendly": true,
       "inLanguage": "es-CO",
       "publisher": {
         "@id": "https://lumen.inovarem.com/#organizacion"
-      },
-      "duration": "PT9S",
-      "thumbnailUrl": "https://lumen.inovarem.com/assets/tour-medicion-poster.jpg"
+      }
     }
   ]
 }

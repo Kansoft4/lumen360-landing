@@ -1,0 +1,31 @@
+{
+  "fuente": "https://lumen.inovarem.com/",
+  "actualizado": "2026-08-22",
+  "idioma": "es-CO",
+  "preguntas": [
+    {
+      "pregunta": "¿Cuánto cuesta un tour?",
+      "respuesta": "Desde $500.000 por propiedad, sin mensualidad ni contrato. El primero va por nuestra cuenta."
+    },
+    {
+      "pregunta": "¿En cuánto tiempo lo tengo listo?",
+      "respuesta": "Una visita de una a dos horas, y el link te llega en 24 horas."
+    },
+    {
+      "pregunta": "¿Qué necesito tener listo el día del escaneo?",
+      "respuesta": "El acceso y las luces encendidas. Llevamos el equipo y no movemos nada."
+    },
+    {
+      "pregunta": "¿El tour abre en el celular de mi cliente?",
+      "respuesta": "Sí. Abre en cualquier navegador, sin descargar nada. Lo mandas por WhatsApp o lo publicas donde quieras."
+    },
+    {
+      "pregunta": "¿El apartamento está amoblado y se ve recargado?",
+      "respuesta": "Quitamos los muebles digitalmente, sin pedirle nada al propietario."
+    },
+    {
+      "pregunta": "¿Cubren toda Cali?",
+      "respuesta": "Cali y municipios cercanos. Mándanos la dirección y te confirmamos."
+    }
+  ]
+}

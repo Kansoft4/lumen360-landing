@@ -1,3 +1,5 @@
 .DS_Store
 .thumbnail
 assets/_orig/
+__pycache__/
+*.pyc

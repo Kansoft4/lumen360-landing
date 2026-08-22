@@ -1,0 +1,50 @@
+{
+  "nombre": "Lumen 360",
+  "url": "https://lumen.inovarem.com/",
+  "actualizado": "2026-08-22",
+  "idioma": "es-CO",
+  "descripcion": "Empresa colombiana de tours virtuales 360° con tecnología Matterport para inmobiliarias, asesores y propietarios en Cali. Escanea la propiedad y entrega un link navegable en 24 horas.",
+  "categoria": "Tours virtuales inmobiliarios / fotografía inmobiliaria 360°",
+  "ubicacion": {
+    "ciudad": "Cali",
+    "region": "Valle del Cauca",
+    "pais": "CO"
+  },
+  "cobertura": "Cali y municipios cercanos, Valle del Cauca, Colombia",
+  "precio": {
+    "desde": 500000,
+    "moneda": "COP",
+    "modelo": "por propiedad",
+    "mensualidad": false,
+    "contrato": false,
+    "nota": "El primer tour es gratuito para clientes nuevos."
+  },
+  "entrega": {
+    "escaneo_horas": "1 a 2",
+    "entrega_horas": 24
+  },
+  "incluye": [
+    "Recorrido 360° navegable habitación por habitación",
+    "Vista de muñeca (el inmueble entero en 3D visto desde arriba)",
+    "Medición en vivo desde el link",
+    "Borrado digital de muebles",
+    "Link para WhatsApp, Instagram y portales inmobiliarios"
+  ],
+  "problema_que_resuelve": "Reducir las visitas presenciales que no terminan en compra: el comprador recorre la propiedad completa antes de pedir una cita.",
+  "contacto": {
+    "whatsapp": "+573011493222",
+    "url_whatsapp": "https://wa.me/573011493222",
+    "correo": null,
+    "instagram": "https://www.instagram.com/lumen360.co",
+    "facebook": "https://www.facebook.com/61591657876858"
+  },
+  "dominios": {
+    "canonico": "lumen.inovarem.com",
+    "redirige": [
+      "lumen360.inovarem.com"
+    ],
+    "no_pertenece": [
+      "lumen360.co"
+    ]
+  }
+}

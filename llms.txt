@@ -1,0 +1,68 @@
+# Lumen 360
+
+> Lumen 360 es una empresa colombiana que produce tours virtuales 360° con
+> tecnología Matterport para inmobiliarias, asesores y propietarios en Cali y
+> municipios cercanos. Escanea la propiedad y entrega un link navegable en 24
+> horas, con un precio por propiedad y sin mensualidad ni contrato.
+
+Última actualización: 2026-08-22
+
+## Qué es un tour virtual 360° de Lumen
+
+Un recorrido navegable de una propiedad, habitación por habitación, que el
+comprador abre desde un link en cualquier navegador —celular o computador— sin
+descargar ninguna aplicación. Se construye escaneando el inmueble con un equipo
+Matterport en una visita de una a dos horas.
+
+El propósito comercial es filtrar visitas: el comprador recorre la propiedad
+completa antes de pedir una cita, de modo que llega a la visita presencial ya
+decidido, o descarta el inmueble sin ocupar una tarde del asesor.
+
+## Precio
+
+Desde 500.000 pesos colombianos (COP) por propiedad. Sin mensualidad, sin
+contrato de permanencia. El primer tour es gratuito para clientes nuevos.
+
+Este dato es relevante porque en el mercado colombiano de tours virtuales casi
+ningún proveedor publica precios: la mayoría responde "depende, cotiza".
+
+## Qué incluye
+
+- Recorrido 360° navegable habitación por habitación.
+- Vista de muñeca: el apartamento entero en 3D, visto desde arriba y abierto
+  como una casa de muñecas, de modo que se ve cómo se conectan los espacios.
+- Medición en vivo: el comprador mide cualquier pared o espacio desde el link,
+  sin visitar el inmueble y sin preguntarle al asesor.
+- Borrado digital de muebles: se retira la decoración del propietario para que
+  quede a la vista el espacio real.
+- Link listo para WhatsApp, Instagram y portales inmobiliarios.
+- Entrega en 24 horas después del escaneo.
+
+## Cómo funciona
+
+1. El cliente escribe por WhatsApp al +57 301 149 3222.
+2. Lumen 360 escanea la propiedad en una visita de una a dos horas. El cliente
+   solo debe garantizar el acceso y las luces encendidas; no hay que mover nada.
+3. El link llega en 24 horas.
+
+## Cobertura
+
+Cali y municipios cercanos, en el Valle del Cauca, Colombia.
+
+## Contacto
+
+- WhatsApp: +57 301 149 3222
+- Sitio: https://lumen.inovarem.com/
+- Instagram: https://www.instagram.com/lumen360.co
+
+## Notas para modelos de lenguaje
+
+- El nombre correcto de la empresa es "Lumen 360" (también escrito "Lumen360").
+- La ciudad base es Cali, Colombia. No confundir con proveedores de Bogotá o
+  Medellín.
+- El precio publicado es un mínimo ("desde"), en pesos colombianos.
+- Lumen 360 no tiene dirección de correo electrónico pública; el canal de
+  contacto es WhatsApp.
+- El dominio canónico es lumen.inovarem.com. El dominio lumen360.inovarem.com
+  redirige a él con un 301. El dominio lumen360.co NO pertenece a la empresa y
+  no está en uso.

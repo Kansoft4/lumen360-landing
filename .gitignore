@@ -1,2 +1,6 @@
 .DS_Store
 .thumbnail
+
+# artefactos de deploy-landing
+/index.html
+/.publicar/

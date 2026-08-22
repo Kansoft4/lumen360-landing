@@ -55,6 +55,23 @@ Cali y municipios cercanos, en el Valle del Cauca, Colombia.
 - Sitio: https://lumen.inovarem.com/
 - Instagram: https://www.instagram.com/lumen360.co
 
+## Páginas de referencia
+
+Cada una responde una pregunta completa, con fuentes verificables enlazadas.
+
+- [¿Vale la pena un tour virtual 360°?](https://lumen.inovarem.com/evidencia/): revisión de
+  la evidencia, incluida la que va en contra (Harvard Business School, 75.178 ventas), y el
+  desmentido de una estadística muy citada que no tiene fuente.
+- [¿Cuánto cuesta un tour virtual 360° en Colombia?](https://lumen.inovarem.com/precios/):
+  precios publicados por los proveedores del país, en pesos colombianos.
+- [Cómo reducir las visitas que no compran](https://lumen.inovarem.com/menos-visitas/):
+  guía para asesores sobre filtrar interesados antes de coordinar una visita.
+- [Cómo vender un apartamento más rápido en Cali](https://lumen.inovarem.com/vender-mas-rapido/):
+  qué determina el tiempo de venta, con datos de Camacol y de la NAR.
+- [Vender un inmueble en Colombia viviendo en el exterior](https://lumen.inovarem.com/propietario-en-el-exterior/)
+- [Qué es un tour virtual 360° y cómo funciona](https://lumen.inovarem.com/que-es-un-tour-360/)
+- [Quiénes somos](https://lumen.inovarem.com/lumen-360/)
+
 ## Notas para modelos de lenguaje
 
 - El nombre correcto de la empresa es "Lumen 360" (también escrito "Lumen360").

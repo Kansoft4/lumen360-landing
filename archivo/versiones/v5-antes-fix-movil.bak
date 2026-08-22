@@ -76,13 +76,6 @@
      dos HTML, cada cambio habria que hacerlo dos veces y divergen enseguida. */
   [data-corto] { display: none; }
   @media (max-width: 760px) {
-    /* El video vertical del hero no se muestra en movil: son 700 KB y empuja
-       el tour 360 fuera de pantalla. El script tambien le quita el src. */
-    [data-parallax] { display: none !important; }
-    /* flex:1 1 300px dentro de una columna estiraba el bloque de texto
-       verticalmente y abria un hueco enorme antes del boton. */
-    [data-ctaband] > div { flex: 0 0 auto !important; }
-
     [data-largo] { display: none; }
     [data-corto] { display: inline; }
   }
@@ -160,7 +153,7 @@
             </div>
         </div>
         <div data-enter="" data-parallax="" style="justify-self:center;width:100%;max-width:334px;aspect-ratio:.52;position:relative;border-radius:clamp(20px,2.2vw,30px);overflow:hidden;box-shadow:0 40px 70px -40px rgba(0,0,0,.55),0 4px 14px -6px rgba(0,0,0,.12)">
-          <video data-loop="" data-hero-video="" data-zoom-img="" src="assets/reel_loop_3.mp4" poster="assets/hero-loft-hd.jpg" ref="{{ heroVideo }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-label="Recorrido en video de un apartamento con ventanales de piso a techo y vista a la ciudad" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 46%;display:block"></video>
+          <video data-zoom-img="" src="assets/reel_loop_3.mp4" poster="assets/hero-loft-hd.jpg" ref="{{ heroVideo }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-label="Recorrido en video de un apartamento con ventanales de piso a techo y vista a la ciudad" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 46%;display:block"></video>
           <div style="position:absolute;left:14px;right:14px;bottom:14px;display:flex;align-items:center;justify-content:flex-end;gap:10px">
             <span style="color:rgba(255,255,255,.85);font-size:16px;line-height:1;letter-spacing:.05em">···</span>
           </div>
@@ -291,19 +284,19 @@
       <div data-3col="" style="margin-top:clamp(34px,4vw,54px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,16px)">
         <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
           <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#004346;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)"><i aria-hidden="true" class="ph ph-cube" style="font-size:23px;line-height:1"></i></span>
-          <video data-loop="" src="assets/tour-vista-muneca.mp4" poster="assets/tour-vista-muneca-poster.jpg" loop="{{ true }}" playsInline="{{ true }}" preload="none" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
+          <video src="assets/tour-vista-muneca.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
           <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">Vista de muñeca</h3>
           <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty"><span data-largo="">El apartamento entero en 3D, abierto como una casa de muñecas. De una mirada se ve cómo se conectan los espacios. Una galería de fotos no muestra eso.</span><span data-corto="">El apartamento entero en 3D. Se ve de una cómo se conectan los espacios.</span></p>
         </div>
         <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
           <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#004346;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)"><i aria-hidden="true" class="ph ph-magic-wand" style="font-size:23px;line-height:1"></i></span>
-          <video data-loop="" src="assets/tour-quita-muebles.mp4" poster="assets/tour-quita-muebles-poster.jpg" loop="{{ true }}" playsInline="{{ true }}" preload="none" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
+          <video src="assets/tour-quita-muebles.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
           <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">Quita muebles</h3>
           <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty"><span data-largo="">El estilo del propietario no siempre ayuda a vender. Quitamos los muebles digitalmente y queda el espacio real.</span><span data-corto="">Quitamos los muebles digitalmente. Queda el espacio real.</span></p>
         </div>
         <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:20px;padding:34px 34px 36px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 34px -26px rgba(0,0,0,.35)">
           <span style="display:flex;width:48px;height:48px;border-radius:14px;background:#004346;color:#fff;align-items:center;justify-content:center;font-size:16px;font-weight:600;box-shadow:0 10px 18px -12px rgba(0,0,0,.9)"><i aria-hidden="true" class="ph ph-ruler" style="font-size:23px;line-height:1"></i></span>
-          <video data-loop="" src="assets/tour-medicion.mp4" poster="assets/tour-medicion-poster.jpg" loop="{{ true }}" playsInline="{{ true }}" preload="none" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
+          <video src="assets/tour-medicion.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display:block;width:100%;height:150px;margin:20px 0 28px;border-radius:14px;object-fit:cover;background:#E7EEEF"></video>
           <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em;color:#172A3A">Medición en vivo</h3>
           <p style="margin:10px 0 0;font-size:16px;line-height:1.8;color:#3F5A66;text-wrap:pretty"><span data-largo="">Mide cualquier pared o espacio desde el mismo link. Se acabó el "¿y ahí me cabe el clóset?" por WhatsApp.</span><span data-corto="">Mide cualquier pared desde el link. Sin preguntarte por WhatsApp.</span></p>
         </div>
@@ -881,79 +874,6 @@ class Component extends DCLogic {
         ocultarSeccion();
       });
   });
-})();
-</script>
-
-<!-- ══ VIDEOS: autoplay mudo que funcione en iOS ══
-     Dos bugs que arregla esto:
-
-     1. El runtime de la plantilla setea muted como PROPIEDAD de React, pero
-        nunca escribe el ATRIBUTO muted en el HTML. iOS mira el atributo al
-        parsear y por eso bloqueaba el autoplay: quedaba el recuadro gris.
-        Aca se lo ponemos a mano, como atributo de verdad.
-
-     2. Los videos cargaban aunque estuvieran fuera de pantalla. Ahora el src
-        se asigna recien cuando entran al viewport, y se pausan al salir.
-
-     En movil el video vertical del hero se elimina del todo (no solo se
-     oculta): se le quita el src para que no gaste datos. -->
-<script>
-(function () {
-  var esMovil = window.matchMedia('(max-width: 760px)').matches;
-  var io = null;
-
-  function arrancar(v) {
-    if (!v.getAttribute('src') && v.dataset.src) v.setAttribute('src', v.dataset.src);
-    v.muted = true;
-    var pr = v.play();
-    if (pr && pr.catch) pr.catch(function () {});   // si falla, queda el poster
-  }
-
-  function preparar() {
-    var vids = document.querySelectorAll('[data-loop]');
-    if (!vids.length) return false;
-
-    Array.prototype.forEach.call(vids, function (v) {
-      if (v.dataset.listo) return;
-      v.dataset.listo = '1';
-
-      // el atributo, no solo la propiedad: es lo que mira iOS
-      v.setAttribute('muted', '');
-      v.setAttribute('playsinline', '');
-      v.muted = true;
-
-      if (esMovil && v.hasAttribute('data-hero-video')) {
-        v.removeAttribute('src');       // no lo descargues siquiera
-        v.removeAttribute('autoplay');
-        v.load();
-        return;
-      }
-
-      // diferir la descarga hasta que se vea
-      if (v.getAttribute('src')) {
-        v.dataset.src = v.getAttribute('src');
-        v.removeAttribute('src');
-        v.removeAttribute('autoplay');
-        v.load();
-      }
-
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      if (!('IntersectionObserver' in window)) { arrancar(v); return; }
-      if (!io) {
-        io = new IntersectionObserver(function (ents) {
-          ents.forEach(function (e) { e.isIntersecting ? arrancar(e.target) : e.target.pause(); });
-        }, { threshold: 0.2 });
-      }
-      io.observe(v);
-    });
-    return true;
-  }
-
-  // el runtime pinta async y ademas reemplaza nodos: reintentamos un rato
-  var n = 0;
-  var iv = setInterval(function () { preparar(); if (++n > 30) clearInterval(iv); }, 200);
-  preparar();
 })();
 </script>
 </body>

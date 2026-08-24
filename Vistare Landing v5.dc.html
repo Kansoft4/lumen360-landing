@@ -6,12 +6,13 @@
 <meta name="description" content="Escaneamos tu propiedad en Cali y te entregamos un link que tu comprador recorre completo antes de pedirte una cita. Entrega en 24 horas. El primer tour va por nuestra cuenta.">
 <title>Tours virtuales 360° en Cali | Lumen 360</title>
 <link rel="canonical" href="https://lumen.inovarem.com/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%23172A3A'/%3E%3Ctext%20x='50'%20y='71'%20font-family='Georgia,serif'%20font-style='italic'%20font-size='58'%20fill='%23ffffff'%20text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%23172A3A'/%3E%3Ctext%20x='50'%20y='71'%20font-family='Georgia,serif'%20font-style='italic'%20font-size='58'%20fill='%23ffffff'%20text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="last-modified" content="2026-08-22">
 <meta name="theme-color" content="#EFF4F4">
 
-<!-- Open Graph: sin esto, el link compartido por WhatsApp sale en blanco.
-     Si mueves la landing a otro dominio, actualiza las URL absolutas de abajo. -->
+<!-- Open Graph. Ver DESARROLLO.md -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lumen 360">
 <meta property="og:locale" content="es_CO">
@@ -82,7 +83,8 @@
       "inLanguage": "es-CO",
       "publisher": {
         "@id": "https://lumen.inovarem.com/#organizacion"
-      }
+      },
+      "dateModified": "2026-08-22"
     },
     {
       "@type": "ProfessionalService",
@@ -392,19 +394,7 @@
       </div>
     </section>
 
-    <!-- ── TOUR 360 REAL (demo en vivo) ──
-         Parámetros de la URL:
-           qs=1    entra directo a Inside View (se salta el fly-in desde Dollhouse)
-           wh=0    la rueda del mouse scrollea la página en vez de quedar atrapada
-                   haciendo zoom en el tour. Clave en una landing larga.
-           brand=0 oculta "Presented By" y los datos de contacto del panel About.
-           nozoom=1 fija el encuadre en 1.00x y el visitante no lo puede cerrar.
-                   NOTA: 1.00x no es la apertura maxima. El rango real del zoom de
-                   Matterport llega hasta 0.70x (probado: zoomTo(0.5) devuelve 0.7),
-                   pero bajar de 1.00x solo se puede por SDK, y el SDK en dominio
-                   propio exige plan pago + Developer Tools License.
-         Sin play=1 a propósito: así Matterport muestra el póster y no arranca el
-         motor WebGL hasta que el visitante hace clic. -->
+    <!-- Tour 360. Parámetros explicados en DESARROLLO.md -->
     <section id="tour-demo" style="width:100%;max-width:1320px;margin:0 auto;padding:clamp(44px,6vw,88px) clamp(20px,4vw,60px) 0">
       <div data-reveal="" style="background:#fff;border:1px solid #DCE6E7;border-radius:clamp(18px,2vw,26px);padding:clamp(10px,1.1vw,14px);box-shadow:0 1px 2px rgba(0,0,0,.03),0 30px 60px -38px rgba(0,0,0,.5)">
         <div data-tour-frame="" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:clamp(12px,1.4vw,18px);overflow:hidden;background:#172A3A">
@@ -882,26 +872,7 @@ class Component extends DCLogic {
 
 </script>
 
-<!-- ══ REELS DE INSTAGRAM (dinamico) ══
-     Trae los reels mas recientes de @lumen360.co y los pinta en la grilla de
-     la seccion "Tours", con el diseño de la pagina.
-
-     COMO ACTIVARLO (5 min, gratis):
-       1. Entra a https://behold.so y crea una cuenta.
-       2. "Connect an Instagram account" -> autoriza @lumen360.co por OAuth.
-          Ojo: Instagram exige cuenta Business o Creator. Si la tuya es
-          Personal, cambiala en Instagram > Configuracion > Tipo de cuenta.
-       3. "+ Add Feed" -> tipo JSON -> en "Allowed post types" deja solo Reels.
-       4. Copia el ID del feed y pegalo abajo en FEED_ID.
-
-     Por que Behold y no la API de Instagram directo: Meta cerro la Basic
-     Display API en diciembre de 2024. La Graph API que la reemplaza necesita
-     un access token, y en una pagina estatica ese token quedaria visible en
-     el codigo fuente para cualquiera. Behold guarda el token de su lado y
-     expone solo un JSON publico de lectura, sin credenciales.
-
-     Si FEED_ID esta vacio o la peticion falla, la seccion entera se oculta
-     sola (y su link en el footer), para no dejar un hueco en la pagina. -->
+<!-- Reels de Instagram vía Behold. Ver DESARROLLO.md -->
 <script>
 (function () {
   // ─────────────────────────────────────────────────────────────────────
@@ -1115,19 +1086,7 @@ class Component extends DCLogic {
 })();
 </script>
 
-<!-- ══ VIDEOS: autoplay mudo que funcione en iOS ══
-     Dos bugs que arregla esto:
-
-     1. El runtime de la plantilla setea muted como PROPIEDAD de React, pero
-        nunca escribe el ATRIBUTO muted en el HTML. iOS mira el atributo al
-        parsear y por eso bloqueaba el autoplay: quedaba el recuadro gris.
-        Aca se lo ponemos a mano, como atributo de verdad.
-
-     2. Los videos cargaban aunque estuvieran fuera de pantalla. Ahora el src
-        se asigna recien cuando entran al viewport, y se pausan al salir.
-
-     En movil el video vertical del hero se elimina del todo (no solo se
-     oculta): se le quita el src para que no gaste datos. -->
+<!-- Autoplay mudo en iOS. Ver DESARROLLO.md -->
 <script>
 (function () {
   var esMovil = window.matchMedia('(max-width: 760px)').matches;

@@ -1,6 +1,10 @@
 {
-  "nombre": "Lumen 360",
+  "name": "Lumen 360",
+  "description": "Empresa colombiana de tours virtuales 360° con tecnología Matterport para inmobiliarias, asesores y propietarios en Cali. Escanea la propiedad y entrega un link navegable en 24 horas.",
   "url": "https://lumen.inovarem.com/",
+  "dateModified": "2026-08-22",
+  "inLanguage": "es-CO",
+  "nombre": "Lumen 360",
   "actualizado": "2026-08-22",
   "idioma": "es-CO",
   "descripcion": "Empresa colombiana de tours virtuales 360° con tecnología Matterport para inmobiliarias, asesores y propietarios en Cali. Escanea la propiedad y entrega un link navegable en 24 horas.",

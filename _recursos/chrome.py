@@ -15,6 +15,11 @@ respetar, porque son las que hacen que un modelo pueda citar la página:
 """
 
 BASE = "https://lumen.inovarem.com"
+
+# Fecha de ultima revision del contenido. El sitemap la lee de aca, asi que
+# cambiarla en un solo lugar mantiene alineados <meta last-modified>,
+# dateModified del schema y <lastmod> del sitemap.
+ACTUALIZADO = "2026-08-22"
 WA = "https://wa.me/573011493222?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Lumen%20360."
 TEL = "+57 301 149 3222"
 
@@ -79,7 +84,8 @@ footer.pie .env{{display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center}}
 
 
 def pagina(slug, titulo, h1, descripcion, cuerpo, schema_extra=None,
-           actualizado="2026-08-22", otras=()):
+           actualizado=None, otras=()):
+    actualizado = actualizado or ACTUALIZADO
     """Devuelve el HTML completo de una página de recursos."""
     import json
     url = f"{BASE}/{slug}/"
@@ -113,6 +119,9 @@ def pagina(slug, titulo, h1, descripcion, cuerpo, schema_extra=None,
 <title>{titulo}</title>
 <meta name="description" content="{descripcion}">
 <link rel="canonical" href="{url}">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%23172A3A'/%3E%3Ctext%20x='50'%20y='71'%20font-family='Georgia,serif'%20font-style='italic'%20font-size='58'%20fill='%23ffffff'%20text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="last-modified" content="{actualizado}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Lumen 360">

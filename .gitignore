@@ -1,5 +1,12 @@
 .DS_Store
 .thumbnail
+
+# artefactos de deploy-landing
+/index.html
+/.publicar/
+
+# originales de video, antes de recomprimir
 assets/_orig/
+
 __pycache__/
 *.pyc
